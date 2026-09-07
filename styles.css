@@ -128,7 +128,7 @@ a { color: inherit; }
 .nav .wrap { display: flex; align-items: center; gap: 1.5rem; width: 100%; }
 
 .brand { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; margin-right: auto; }
-.brand img { width: 30px; height: 30px; border-radius: 5px; display: block; }
+.brand img { width: 38px; height: auto; display: block; }
 .brand span {
   font-family: var(--display); color: var(--white);
   font-size: 17px; letter-spacing: 0.14em; text-transform: uppercase;
@@ -160,10 +160,12 @@ a { color: inherit; }
 
 .hero-inner { position: relative; z-index: 2; padding: calc(var(--nav-h) + 3rem) var(--pad) 6rem; }
 
+/* The mark is a cut-out on transparency rather than the square tile it ships
+   in, so it sits on the ground directly instead of inside a visible panel, and
+   fills its footprint instead of spending most of it on the tile's padding. */
 .hero-mark {
-  width: 92px; height: 92px; border-radius: 14px;
-  display: block; margin: 0 auto 2.6rem;
-  box-shadow: 0 0 0 1px var(--ink-line), 0 30px 70px -30px rgba(0,0,0,0.9);
+  width: clamp(128px, 15vw, 186px); height: auto;
+  display: block; margin: 0 auto 2.4rem;
 }
 
 .hero h1 {

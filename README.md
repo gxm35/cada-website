@@ -137,9 +137,16 @@ file shipped here and the one that matched DIN Condensed Bold. Asking for 700
 would make the browser fake a heavier face and the labels would come out fatter
 than the design.
 
-**Known limitation.** The logo is a 200 by 200 pixel JPEG. That is enough for the
-navigation mark and the cover badge and not enough for anything larger. Get a
-vector version, or an export at 1000 pixels or more, before scaling it up.
+**The mark.** `assets/cada-logo.jpeg` is the 1024 pixel original and is kept as
+the source of record. The site itself uses `assets/cada-wing.png`, which is the
+same mark with its navy tile cut away, so it sits on the page ground directly
+rather than inside a visible panel and fills its footprint instead of spending
+most of it on the tile's padding.
+
+If the mark is ever redrawn, replace `cada-logo.jpeg`, then regenerate the
+cut-out, the icons and the social card from it. There is still no vector version;
+1024 pixels is enough for every current use but a vector would be better if the
+mark ever goes on something printed.
 
 ## Building
 

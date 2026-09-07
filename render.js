@@ -73,7 +73,7 @@ function homeHTML() {
     <header class="hero">
       <canvas id="field" aria-hidden="true"></canvas>
       <div class="hero-inner">
-        <img class="hero-mark" src="assets/cada-logo.jpeg" alt="${esc(C.org.name)}">
+        <img class="hero-mark" src="assets/cada-wing.png" alt="${esc(C.org.name)}">
         <h1>Claremont Aerospace<br><span class="amp">&amp;</span> Defense Association</h1>
         <p class="hero-line">${txt(C.org.heroLine)}</p>
         <dl class="triptych">${heroTriptych()}</dl>
