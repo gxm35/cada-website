@@ -34,7 +34,8 @@ const CONTENT = {
 
     founded: "[TO CONFIRM]",   // Project files date back to at least December 2025
     memberCount: "10",
-    contactEmail: "claremontaerospacedefense@gmail.com"
+    contactEmail: "claremontaerospacedefense@gmail.com",
+    domain: "claremontaerospacedefense.com"
   },
 
   /* --------------------------------------------------------------------------
@@ -170,8 +171,8 @@ const CONTENT = {
      also prevents the conversation that wastes everyone's time.
      ------------------------------------------------------------------------ */
   boundaries: {
-    lead: "We are not trying to out-engineer your team.",
-    body: "We offer bandwidth on the work that never reaches the top of the priority list, low-cost exploration of ideas that may not pan out, and outside perspective on processes your engineers stopped seeing years ago. We do not take on classified work, controlled technical data, or anything inside an export control boundary."
+    lead: "The work your team never gets to.",
+    body: "Your engineers are booked on production-critical work, and the useful but not urgent items never reach the top of the list: a legacy process audit, a speculative idea nobody can justify senior hours on, a landscape scan, a question the team stopped seeing years ago. That is what we take. We are not trying to out-engineer anyone, and we do not take on classified work, controlled technical data, or anything inside an export control boundary."
   },
 
   /* --------------------------------------------------------------------------

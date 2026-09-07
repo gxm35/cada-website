@@ -1,4 +1,42 @@
 /* ============================================================================
+   TYPEFACES
+   ----------------------------------------------------------------------------
+   Self-hosted, so the site looks the same on Windows and Android as it does on
+   a Mac. The three faces were picked against the macOS originals the design was
+   built with, and each is the closest freely licensed match:
+
+     Futura         -> Jost              a geometric revival of Futura
+     DIN Condensed  -> Barlow Condensed  closest in width and weight; Oswald ran
+                                         noticeably wider and more gothic
+     Charter        -> Charis SIL        drawn from Bitstream Charter itself
+
+   The macOS originals stay in each stack behind the web font, so a Mac with a
+   slow connection falls back to something nearly identical rather than to a
+   default. font-display: swap means text is readable before the fonts arrive.
+   ========================================================================== */
+
+@font-face {
+  font-family: "Jost"; src: url("assets/fonts/jost-400.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Jost"; src: url("assets/fonts/jost-500.woff2") format("woff2");
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Barlow Condensed"; src: url("assets/fonts/barlowcond-600.woff2") format("woff2");
+  font-weight: 600; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Charis SIL"; src: url("assets/fonts/charis-400.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Charis SIL"; src: url("assets/fonts/charis-700.woff2") format("woff2");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+
+/* ============================================================================
    CADA — visual system
    Palette is derived entirely from the logo. The ground #070A51 was sampled
    directly from the mark. There is no foreign accent colour: every value below
@@ -33,9 +71,9 @@
               as another sans-serif startup template.
      Web fallbacks for each are free faces (Jost, Oswald, Bitstream Charter) and
      should be self-hosted if the site is ever deployed off a Mac. */
-  --display: "Futura", "Jost", "Avenir Next", system-ui, sans-serif;
-  --label: "DIN Condensed", "DIN Alternate", "Oswald", "Barlow Condensed", "Arial Narrow", sans-serif;
-  --body: "Charter", "Bitstream Charter", "Iowan Old Style", Georgia, serif;
+  --display: "Jost", "Futura", "Avenir Next", system-ui, sans-serif;
+  --label: "Barlow Condensed", "DIN Condensed", "Arial Narrow", system-ui, sans-serif;
+  --body: "Charis SIL", "Charter", "Bitstream Charter", Georgia, serif;
 
   /* Rhythm */
   --pad: clamp(1.5rem, 4vw, 6rem);
@@ -68,7 +106,7 @@ a { color: inherit; }
    labels and data captions only, never for prose. */
 .eyebrow {
   font-family: var(--label);
-  font-weight: 700;
+  font-weight: 600;
   font-size: 14px;
   letter-spacing: 0.055em;
   text-transform: uppercase;
@@ -98,7 +136,7 @@ a { color: inherit; }
 
 .nav-links { display: flex; gap: 0.35rem; }
 .nav-links a {
-  font-family: var(--label); font-weight: 700;
+  font-family: var(--label); font-weight: 600;
   font-size: 13.5px; letter-spacing: 0.05em; text-transform: uppercase;
   color: var(--ink-soft); text-decoration: none;
   padding: 0.55rem 0.85rem; border-radius: 4px;
@@ -153,7 +191,7 @@ a { color: inherit; }
 }
 .triptych div { background: var(--ink); padding: 1.7rem 1.2rem; }
 .triptych dt {
-  font-family: var(--label); font-weight: 700; font-size: 13px; letter-spacing: 0.05em;
+  font-family: var(--label); font-weight: 600; font-size: 13px; letter-spacing: 0.05em;
   text-transform: uppercase; color: var(--tint); margin-bottom: 0.7rem;
 }
 .triptych dd {
@@ -163,7 +201,7 @@ a { color: inherit; }
 
 .scroll-cue {
   position: absolute; bottom: 2rem; left: 50%; translate: -50% 0; z-index: 2;
-  font-family: var(--label); font-weight: 700; font-size: 13px; letter-spacing: 0.05em;
+  font-family: var(--label); font-weight: 600; font-size: 13px; letter-spacing: 0.05em;
   text-transform: uppercase; color: rgba(255,255,255,0.32);
 }
 
@@ -206,19 +244,19 @@ a { color: inherit; }
   font-size: clamp(1.8rem, 3.6vw, 3.2rem); letter-spacing: 0.01em; line-height: 1;
   margin-bottom: 0.7rem;
 }
-.proof .l { font-family: var(--label); font-weight: 700; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--tint); line-height: 1.5; }
+.proof .l { font-family: var(--label); font-weight: 600; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--tint); line-height: 1.5; }
 
 /* Engagement */
 .engagement { border-top: 1px solid var(--paper-line); padding-top: 2.4rem; margin-top: 3rem; }
 .engagement-head { display: flex; flex-wrap: wrap; gap: 0.8rem 1.5rem; align-items: baseline; margin-bottom: 1.2rem; }
 .engagement-head h3 { font-family: var(--display); text-transform: uppercase; letter-spacing: 0.04em; font-size: 1.35rem; }
 .chip {
-  font-family: var(--label); font-weight: 700; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase;
+  font-family: var(--label); font-weight: 600; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase;
   border: 1px solid var(--paper-line); border-radius: 999px; padding: 0.25rem 0.7rem; color: var(--on-paper-2);
 }
 .workrow { display: grid; gap: 0.5rem 2.5rem; padding: 1.5rem 0; border-top: 1px solid var(--paper-line); }
 @media (min-width: 820px) { .workrow { grid-template-columns: 150px 1fr; } }
-.workrow .k { font-family: var(--label); font-weight: 700; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--on-paper-2); padding-top: 0.35rem; }
+.workrow .k { font-family: var(--label); font-weight: 600; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--on-paper-2); padding-top: 0.35rem; }
 .workrow .d { margin: 0; font-size: 0.98rem; }
 
 /* Team */
@@ -227,7 +265,7 @@ a { color: inherit; }
 .member { display: grid; gap: 0.6rem 2.5rem; padding: 2rem 0; border-bottom: 1px solid var(--paper-line); }
 @media (min-width: 820px) { .member { grid-template-columns: 260px 1fr; } }
 .member h3 { font-family: var(--display); text-transform: uppercase; letter-spacing: 0.045em; font-size: 1.1rem; line-height: 1.3; }
-.member .meta { font-family: var(--label); font-weight: 700; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--on-paper-2); margin-top: 0.5rem; }
+.member .meta { font-family: var(--label); font-weight: 600; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--on-paper-2); margin-top: 0.5rem; }
 .member .bio { margin: 0; font-size: 0.98rem; color: var(--on-paper-2); }
 
 /* Steps */
@@ -243,7 +281,7 @@ a { color: inherit; }
 
 /* Placeholder marker: deliberately visible */
 .todo {
-  font-family: var(--label); font-weight: 700; font-size: 0.82em; letter-spacing: 0.06em;
+  font-family: var(--label); font-weight: 600; font-size: 0.82em; letter-spacing: 0.06em;
   background: rgba(7,10,81,0.09); border: 1px dashed var(--paper-line);
   border-radius: 3px; padding: 0.1em 0.45em; color: var(--on-paper-2);
 }
@@ -283,7 +321,7 @@ a { color: inherit; }
 }
 .team-head .eyebrow { margin: 0; }
 .team-q { margin: 0; margin-right: auto; font-size: 0.95rem; color: var(--on-paper-2); }
-.team-n { margin: 0; font-family: var(--label); font-weight: 700; font-size: 13px; color: var(--on-paper-2); }
+.team-n { margin: 0; font-family: var(--label); font-weight: 600; font-size: 13px; color: var(--on-paper-2); }
 
 /* Hairlines are drawn on the cards themselves rather than as a gap over a
    coloured background. With a grid background, a row that is not full renders
@@ -350,7 +388,7 @@ a { color: inherit; }
 }
 .pcard-meta {
   display: block; margin-top: 0.4rem;
-  font-family: var(--label); font-weight: 700; font-size: 12.5px; letter-spacing: 0.05em;
+  font-family: var(--label); font-weight: 600; font-size: 12.5px; letter-spacing: 0.05em;
   text-transform: uppercase; color: var(--on-paper-2);
 }
 
@@ -383,7 +421,7 @@ a { color: inherit; }
   position: absolute; top: 0.9rem; right: 0.9rem; z-index: 2;
   appearance: none; cursor: pointer;
   background: rgba(255,255,255,0.09); border: 1px solid var(--ink-line); color: var(--white);
-  font-family: var(--label); font-weight: 700; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase;
+  font-family: var(--label); font-weight: 600; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase;
   padding: 0.45rem 0.8rem; border-radius: 3px;
   transition: background 0.18s ease;
 }
@@ -402,7 +440,7 @@ a { color: inherit; }
   font-size: clamp(1.25rem, 2.6vw, 1.7rem); line-height: 1.16; color: var(--white);
 }
 .modal-meta {
-  font-family: var(--label); font-weight: 700; font-size: 13px; letter-spacing: 0.05em;
+  font-family: var(--label); font-weight: 600; font-size: 13px; letter-spacing: 0.05em;
   text-transform: uppercase; color: var(--tint); margin: 0.7rem 0 1.6rem;
 }
 .modal-why {
@@ -432,7 +470,7 @@ a { color: inherit; }
 .cfield { display: block; margin-bottom: 2rem; }
 .cfield > span {
   display: block; margin-bottom: 0.6rem;
-  font-family: var(--label); font-weight: 700;
+  font-family: var(--label); font-weight: 600;
   font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase;
   color: var(--tint);
 }
@@ -465,7 +503,7 @@ a { color: inherit; }
 .cbtn {
   appearance: none; cursor: pointer;
   background: var(--white); color: var(--ink); border: 1px solid var(--white);
-  font-family: var(--label); font-weight: 700;
+  font-family: var(--label); font-weight: 600;
   font-size: 15px; letter-spacing: 0.06em; text-transform: uppercase;
   padding: 0.75rem 1.7rem;
   transition: background 0.18s ease, color 0.18s ease;
@@ -523,7 +561,7 @@ a { color: inherit; }
 }
 .csuccess-head {
   margin: 0 0 0.6rem; color: var(--white);
-  font-family: var(--label); font-weight: 700;
+  font-family: var(--label); font-weight: 600;
   font-size: 17px; letter-spacing: 0.05em; text-transform: uppercase;
 }
 .csuccess-body { margin: 0; color: var(--ink-soft); font-size: 1rem; }

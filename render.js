@@ -46,7 +46,8 @@ function txt(s) {
   return esc(s).replace(/\[TO CONFIRM\]/g, '<span class="todo">TO CONFIRM</span>');
 }
 
-const C = CONTENT;
+let C = (typeof CONTENT !== 'undefined') ? CONTENT : null;
+const HAS_DOM = (typeof document !== 'undefined');
 const el = (id) => document.getElementById(id);
 
 /* --- 2. Pages ------------------------------------------------------------- */
@@ -67,8 +68,8 @@ function practiceCards() {
     </article>`).join('');
 }
 
-function renderHome() {
-  el('page-home').innerHTML = `
+function homeHTML() {
+  return `
     <header class="hero">
       <canvas id="field" aria-hidden="true"></canvas>
       <div class="hero-inner">
@@ -107,8 +108,8 @@ function renderHome() {
     </section>`;
 }
 
-function renderCapabilities() {
-  el('page-capabilities').innerHTML = `
+function capabilitiesHTML() {
+  return `
     <section class="band band-paper">
       <div class="wrap">
         <p class="eyebrow on-paper">Capabilities</p>
@@ -130,7 +131,7 @@ function renderCapabilities() {
     </section>`;
 }
 
-function renderEngagements() {
+function engagementsHTML() {
   // Anything marked "withheld" in content.js never reaches the page.
   const shown = C.engagements.filter(e => e.disclosure !== 'withheld');
 
@@ -153,7 +154,7 @@ function renderEngagements() {
           </article>`;
       }).join('');
 
-  el('page-engagements').innerHTML = `
+  return `
     <section class="band band-paper">
       <div class="wrap">
         <p class="eyebrow on-paper">Engagements</p>
@@ -164,8 +165,8 @@ function renderEngagements() {
     </section>`;
 }
 
-function renderTeam() {
-  // Every member gets an index so the modal can find them again on click.
+function teamHTML() {
+  // Every member gets an index so the dialog can find them again on click.
   C.members.forEach((m, i) => { m._i = i; });
 
   const groups = C.practices.map(p => {
@@ -190,7 +191,7 @@ function renderTeam() {
       </section>`;
   }).join('');
 
-  el('page-team').innerHTML = `
+  return `
     <section class="band band-paper">
       <div class="wrap">
         <p class="eyebrow on-paper">${esc(C.org.memberCount)} members · ${esc(C.org.colleges)}</p>
@@ -200,9 +201,6 @@ function renderTeam() {
       </div>
     </section>`;
 
-  el('page-team').querySelectorAll('.pcard').forEach(b => {
-    b.addEventListener('click', () => openMember(Number(b.dataset.member), b));
-  });
 }
 
 /* --- The member dialog ----------------------------------------------------- */
@@ -241,8 +239,8 @@ function closeMember() {
   if (lastFocused) lastFocused.focus();
 }
 
-function renderJoin() {
-  el('page-join').innerHTML = `
+function joinHTML() {
+  return `
     <section class="band band-ink">
       <div class="wrap">
         <p class="eyebrow">Join CADA</p>
@@ -269,10 +267,10 @@ function renderJoin() {
 
 /* --- Contact --------------------------------------------------------------- */
 
-function renderContact() {
+function contactHTML() {
   const f = C.contact.fields;
 
-  el('page-contact').innerHTML = `
+  return `
     <section class="band band-ink">
       <div class="wrap">
         <p class="eyebrow">Contact</p>
@@ -327,7 +325,6 @@ function renderContact() {
       </div>
     </section>`;
 
-  el('cform').addEventListener('submit', submitContact);
 }
 
 /* Validation ---------------------------------------------------------------- */
@@ -437,6 +434,25 @@ function showSendError(detail) {
   banner.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
 }
 
+/* --- The page map ----------------------------------------------------------
+   Used by the browser to fill the shell, and by build.js to bake the same
+   markup into index.html so that link previews and search engines see real
+   content instead of an empty page. Keep the keys in nav order.            */
+
+const PAGE_HTML = {
+  home: homeHTML,
+  capabilities: capabilitiesHTML,
+  engagements: engagementsHTML,
+  team: teamHTML,
+  join: joinHTML,
+  contact: contactHTML
+};
+
+// Exported when this file is loaded by Node, ignored in the browser.
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { PAGE_HTML: PAGE_HTML, setContent: (c) => { C = c; } };
+}
+
 /* --- 3. Routing ----------------------------------------------------------- */
 
 const PAGES = ['home', 'capabilities', 'engagements', 'team', 'join', 'contact'];
@@ -509,11 +525,26 @@ function startField() {
 
 /* --- Boot ------------------------------------------------------------------ */
 
-renderHome(); renderCapabilities(); renderEngagements(); renderTeam(); renderJoin(); renderContact();
-el('foot-colleges').innerHTML = txt(C.org.colleges);
-el('foot-contact').textContent = C.org.contactEmail;
-el('modal-close').addEventListener('click', closeMember);
-el('modal-scrim').addEventListener('click', closeMember);
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMember(); });
-window.addEventListener('hashchange', () => { closeMember(); route(); });
-route();
+function mountPages() {
+  PAGES.forEach(name => {
+    const node = el('page-' + name);
+    // Skip anything the build step already baked in and that has not changed.
+    node.innerHTML = PAGE_HTML[name]();
+  });
+
+  el('page-team').querySelectorAll('.pcard').forEach(b => {
+    b.addEventListener('click', () => openMember(Number(b.dataset.member), b));
+  });
+  el('cform').addEventListener('submit', submitContact);
+}
+
+if (HAS_DOM) {
+  mountPages();
+  el('foot-colleges').innerHTML = txt(C.org.colleges);
+  el('foot-contact').textContent = C.org.contactEmail;
+  el('modal-close').addEventListener('click', closeMember);
+  el('modal-scrim').addEventListener('click', closeMember);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMember(); });
+  window.addEventListener('hashchange', () => { closeMember(); route(); });
+  route();
+}

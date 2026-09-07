@@ -118,22 +118,58 @@ fallback, so a visitor is never left with no way to make contact.
 white. It was sampled from the mark directly. There is no other colour in the
 system. Adding one will make the site look cheaper, not richer.
 
-**Type.** Three faces, each with one job. Futura for display, the face on the
-Apollo 11 lunar plaque. DIN Condensed for labels, the German industrial standard
-used on machine dataplates and technical drawings. Charter for body text, because
-a serif says this organization writes analysis.
+**Type.** Three faces, each with one job, all self-hosted in `assets/fonts/` so
+the site looks the same on Windows and Android as it does on a Mac.
 
-These are macOS system fonts, chosen so the site runs with no internet. If it is
-ever hosted, self-host the free equivalents instead: Jost for Futura, Oswald or
-Barlow Condensed for DIN, Bitstream Charter for Charter.
+| Role | Face | Why |
+|---|---|---|
+| Display | Jost | A geometric revival of Futura, the face on the Apollo 11 lunar plaque |
+| Label | Barlow Condensed | Stands in for DIN, the German industrial standard used on machine dataplates and technical drawings |
+| Body | Charis SIL | Drawn from Bitstream Charter. A serif says this organization writes analysis |
+
+Each was chosen by rendering it beside the macOS original the design was built
+with. Oswald was the other candidate for labels and ran noticeably wider and more
+gothic than DIN. The macOS originals stay in each stack behind the web font, so a
+Mac on a slow connection falls back to something nearly identical.
+
+Labels are set at weight 600, not 700. That is the weight of the Barlow Condensed
+file shipped here and the one that matched DIN Condensed Bold. Asking for 700
+would make the browser fake a heavier face and the labels would come out fatter
+than the design.
 
 **Known limitation.** The logo is a 200 by 200 pixel JPEG. That is enough for the
 navigation mark and the cover badge and not enough for anything larger. Get a
 vector version, or an export at 1000 pixels or more, before scaling it up.
 
-## If the site is ever hosted
+## Building
 
-Content is rendered by JavaScript, which search engines index less well than
-plain HTML. That does not matter while this runs from a laptop. If it goes live,
-add a small build script that writes static pages out of the same `content.js`.
-The content model does not need to change.
+After editing `content.js`, run:
+
+    node build.js
+
+The site builds its pages in JavaScript in the browser. Google mostly copes with
+that, but **link preview scrapers do not run JavaScript at all**, so without this
+step pasting the address into Slack, LinkedIn or a text message shows an empty
+page. The build bakes the same markup the browser would produce straight into
+`index.html`, so anything reading the raw HTML sees real content.
+
+**If you forget to run it, nothing breaks for visitors.** The browser still
+rebuilds every page from `content.js` on load, so people see your edit
+immediately. Only scrapers and search engines keep seeing the older text until
+the next build.
+
+## Publishing
+
+The domain is `claremontaerospacedefense.com`.
+
+This is a static site, so any static host serves it. Netlify and Cloudflare Pages
+are both free, both issue HTTPS automatically, and both redeploy on every push to
+the connected repository.
+
+**This repository holds only the site.** It was deliberately separated from the
+private notes repository it started in, because deploying means granting a
+hosting provider read access to whatever it is pointed at. Keep it that way.
+
+Before going live, check that no `[TO CONFIRM]` markers remain:
+
+    grep -c "TO CONFIRM" content.js
