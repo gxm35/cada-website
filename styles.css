@@ -1,0 +1,532 @@
+/* ============================================================================
+   CADA — visual system
+   Palette is derived entirely from the logo. The ground #070A51 was sampled
+   directly from the mark. There is no foreign accent colour: every value below
+   is either that indigo, a tint or shade of it, or white. A two-colour system
+   held strictly reads as more considered than a wider one held loosely.
+   ========================================================================== */
+
+:root {
+  /* Colour */
+  --ink:        #070A51;   /* sampled from the logo */
+  --ink-deep:   #03051F;
+  --ink-lift:   #0D1266;
+  --ink-line:   rgba(255, 255, 255, 0.13);
+  --ink-soft:   rgba(255, 255, 255, 0.58);
+  --white:      #FFFFFF;
+  --tint:       #9BA6E6;   /* pale indigo, eyebrows and data labels on navy */
+  --paper:      #EDEFF6;   /* cool near-white, never cream */
+  --paper-2:    #E1E5F1;
+  --paper-line: rgba(7, 10, 81, 0.13);
+  --on-paper:   #141943;
+  --on-paper-2: #4C5379;
+
+  /* Type */
+  /* Three voices, each with one job.
+     Display  Futura, the face on the Apollo 11 lunar plaque. Geometric, spare,
+              unmistakably aerospace, and not a default anyone reaches for.
+     Label    DIN Condensed. DIN is the German industrial standard face: machine
+              dataplates, technical drawings, road signage. It replaces the
+              tracked-out monospace that every generated site uses for labels.
+     Body     Charter, Matthew Carter's screen serif. A serif body signals that
+              this organisation writes analysis, and it stops the page reading
+              as another sans-serif startup template.
+     Web fallbacks for each are free faces (Jost, Oswald, Bitstream Charter) and
+     should be self-hosted if the site is ever deployed off a Mac. */
+  --display: "Futura", "Jost", "Avenir Next", system-ui, sans-serif;
+  --label: "DIN Condensed", "DIN Alternate", "Oswald", "Barlow Condensed", "Arial Narrow", sans-serif;
+  --body: "Charter", "Bitstream Charter", "Iowan Old Style", Georgia, serif;
+
+  /* Rhythm */
+  --pad: clamp(1.5rem, 4vw, 6rem);
+  --max: 1680px;
+  --nav-h: 68px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--on-paper);
+  font-family: var(--body);
+  font-size: 17.5px;
+  line-height: 1.66;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 { margin: 0; font-weight: 500; letter-spacing: -0.01em; }
+p { margin: 0 0 1em; }
+a { color: inherit; }
+
+.wrap { max-width: var(--max); margin: 0 auto; padding-inline: var(--pad); }
+
+/* Eyebrow: the utility voice. Mono, uppercase, widely tracked. Used for
+   labels and data captions only, never for prose. */
+.eyebrow {
+  font-family: var(--label);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+  color: var(--tint);
+  margin: 0 0 1.4rem;
+}
+.eyebrow.on-paper { color: var(--on-paper-2); }
+
+/* ---------------------------------------------------------------- NAV ----- */
+.nav {
+  position: fixed; inset: 0 0 auto 0; z-index: 50;
+  height: var(--nav-h);
+  display: flex; align-items: center;
+  background: rgba(7, 10, 81, 0.82);
+  backdrop-filter: saturate(180%) blur(18px);
+  -webkit-backdrop-filter: saturate(180%) blur(18px);
+  border-bottom: 1px solid var(--ink-line);
+}
+.nav .wrap { display: flex; align-items: center; gap: 1.5rem; width: 100%; }
+
+.brand { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; margin-right: auto; }
+.brand img { width: 30px; height: 30px; border-radius: 5px; display: block; }
+.brand span {
+  font-family: var(--display); color: var(--white);
+  font-size: 17px; letter-spacing: 0.14em; text-transform: uppercase;
+}
+
+.nav-links { display: flex; gap: 0.35rem; }
+.nav-links a {
+  font-family: var(--label); font-weight: 700;
+  font-size: 13.5px; letter-spacing: 0.05em; text-transform: uppercase;
+  color: var(--ink-soft); text-decoration: none;
+  padding: 0.55rem 0.85rem; border-radius: 4px;
+  transition: color 0.18s ease, background 0.18s ease;
+}
+.nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.07); }
+.nav-links a[aria-current="page"] { color: var(--white); background: rgba(255,255,255,0.11); }
+
+/* --------------------------------------------------------------- HERO ----- */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: grid; place-items: center;
+  background: var(--ink);
+  overflow: hidden;
+  text-align: center;
+}
+/* The signature element. A slow scan passes down a fine coordinate field,
+   drawn from the LiDAR and ultrasonic survey work the team actually does. */
+#field { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+.hero-inner { position: relative; z-index: 2; padding: calc(var(--nav-h) + 3rem) var(--pad) 6rem; }
+
+.hero-mark {
+  width: 92px; height: 92px; border-radius: 14px;
+  display: block; margin: 0 auto 2.6rem;
+  box-shadow: 0 0 0 1px var(--ink-line), 0 30px 70px -30px rgba(0,0,0,0.9);
+}
+
+.hero h1 {
+  font-family: var(--display);
+  color: var(--white);
+  text-transform: uppercase;
+  font-size: clamp(1.9rem, 5.6vw, 5.3rem);
+  line-height: 1.06;
+  letter-spacing: 0.02em;
+  margin: 0 0 1.8rem;
+}
+.hero h1 .amp { color: var(--tint); }
+
+.hero-line {
+  max-width: 50ch; margin: 0 auto 3.4rem;
+  color: var(--ink-soft); font-size: clamp(1.05rem, 1.5vw, 1.32rem); line-height: 1.55;
+}
+
+/* The three questions, set as a rule-separated triptych. */
+.triptych {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1px; background: var(--ink-line);
+  border-block: 1px solid var(--ink-line);
+  max-width: 1040px; margin: 0 auto;
+}
+.triptych div { background: var(--ink); padding: 1.7rem 1.2rem; }
+.triptych dt {
+  font-family: var(--label); font-weight: 700; font-size: 13px; letter-spacing: 0.05em;
+  text-transform: uppercase; color: var(--tint); margin-bottom: 0.7rem;
+}
+.triptych dd {
+  margin: 0; font-family: var(--display); color: var(--white);
+  font-size: clamp(0.98rem, 1.4vw, 1.22rem); line-height: 1.3;
+}
+
+.scroll-cue {
+  position: absolute; bottom: 2rem; left: 50%; translate: -50% 0; z-index: 2;
+  font-family: var(--label); font-weight: 700; font-size: 13px; letter-spacing: 0.05em;
+  text-transform: uppercase; color: rgba(255,255,255,0.32);
+}
+
+/* ------------------------------------------------------------ SECTIONS ---- */
+.band { padding: clamp(4rem, 9vw, 8rem) 0; }
+.band-paper { background: var(--paper); color: var(--on-paper); }
+.band-ink   { background: var(--ink);   color: var(--white); }
+.band-deep  { background: var(--ink-deep); color: var(--white); }
+
+.band h2 {
+  font-family: var(--display); text-transform: uppercase;
+  font-size: clamp(1.6rem, 3.4vw, 3.1rem); letter-spacing: 0.015em;
+  line-height: 1.14; margin: 0 0 1.4rem; max-width: 22ch;
+}
+.lede { max-width: 64ch; font-size: 1.13rem; color: var(--on-paper-2); }
+.band-ink .lede, .band-deep .lede { color: var(--ink-soft); }
+
+/* Practice cards */
+.practices { display: grid; gap: 1px; background: var(--paper-line); margin-top: 3.5rem; border-block: 1px solid var(--paper-line); }
+@media (min-width: 860px) { .practices { grid-template-columns: repeat(3, 1fr); } }
+.practice { background: var(--paper); padding: 2.4rem 2rem 2.8rem; }
+.practice-q {
+  font-family: var(--display); text-transform: uppercase;
+  font-size: 1.18rem; letter-spacing: 0.035em; line-height: 1.25;
+  margin: 0 0 1rem; color: var(--on-paper);
+}
+.practice-lead { color: var(--on-paper-2); font-size: 0.97rem; margin-bottom: 1.6rem; }
+.practice ul { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--paper-line); }
+.practice li {
+  font-size: 0.9rem; padding: 0.7rem 0; border-bottom: 1px solid var(--paper-line);
+  color: var(--on-paper-2);
+}
+
+/* Proof strip */
+.proof { display: grid; gap: 1px; background: var(--ink-line); border-block: 1px solid var(--ink-line); margin-top: 3rem; }
+@media (min-width: 700px) { .proof { grid-template-columns: repeat(4, 1fr); } }
+.proof div { background: var(--ink-deep); padding: 2rem 1.4rem; }
+.proof .v {
+  font-family: var(--display); color: var(--white);
+  font-size: clamp(1.8rem, 3.6vw, 3.2rem); letter-spacing: 0.01em; line-height: 1;
+  margin-bottom: 0.7rem;
+}
+.proof .l { font-family: var(--label); font-weight: 700; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--tint); line-height: 1.5; }
+
+/* Engagement */
+.engagement { border-top: 1px solid var(--paper-line); padding-top: 2.4rem; margin-top: 3rem; }
+.engagement-head { display: flex; flex-wrap: wrap; gap: 0.8rem 1.5rem; align-items: baseline; margin-bottom: 1.2rem; }
+.engagement-head h3 { font-family: var(--display); text-transform: uppercase; letter-spacing: 0.04em; font-size: 1.35rem; }
+.chip {
+  font-family: var(--label); font-weight: 700; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase;
+  border: 1px solid var(--paper-line); border-radius: 999px; padding: 0.25rem 0.7rem; color: var(--on-paper-2);
+}
+.workrow { display: grid; gap: 0.5rem 2.5rem; padding: 1.5rem 0; border-top: 1px solid var(--paper-line); }
+@media (min-width: 820px) { .workrow { grid-template-columns: 150px 1fr; } }
+.workrow .k { font-family: var(--label); font-weight: 700; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--on-paper-2); padding-top: 0.35rem; }
+.workrow .d { margin: 0; font-size: 0.98rem; }
+
+/* Team */
+.team-group { margin-top: 4rem; }
+.team-group > .eyebrow { padding-bottom: 1rem; border-bottom: 1px solid var(--paper-line); margin-bottom: 0; }
+.member { display: grid; gap: 0.6rem 2.5rem; padding: 2rem 0; border-bottom: 1px solid var(--paper-line); }
+@media (min-width: 820px) { .member { grid-template-columns: 260px 1fr; } }
+.member h3 { font-family: var(--display); text-transform: uppercase; letter-spacing: 0.045em; font-size: 1.1rem; line-height: 1.3; }
+.member .meta { font-family: var(--label); font-weight: 700; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--on-paper-2); margin-top: 0.5rem; }
+.member .bio { margin: 0; font-size: 0.98rem; color: var(--on-paper-2); }
+
+/* Steps */
+.steps { margin-top: 3rem; border-top: 1px solid var(--ink-line); }
+.step { display: grid; gap: 0.5rem 2.5rem; padding: 1.6rem 0; border-bottom: 1px solid var(--ink-line); }
+@media (min-width: 820px) { .step { grid-template-columns: 200px 1fr; } }
+.step .k { font-family: var(--display); text-transform: uppercase; letter-spacing: 0.09em; font-size: 1rem; color: var(--white); }
+.step .d { margin: 0; color: var(--ink-soft); font-size: 0.98rem; }
+
+/* Lists on ink */
+.plainlist { list-style: none; margin: 2rem 0 0; padding: 0; border-top: 1px solid var(--paper-line); max-width: 60ch; }
+.plainlist li { padding: 0.85rem 0; border-bottom: 1px solid var(--paper-line); color: var(--on-paper-2); font-size: 0.98rem; }
+
+/* Placeholder marker: deliberately visible */
+.todo {
+  font-family: var(--label); font-weight: 700; font-size: 0.82em; letter-spacing: 0.06em;
+  background: rgba(7,10,81,0.09); border: 1px dashed var(--paper-line);
+  border-radius: 3px; padding: 0.1em 0.45em; color: var(--on-paper-2);
+}
+.band-ink .todo, .band-deep .todo, .hero .todo {
+  background: rgba(255,255,255,0.08); border-color: var(--ink-line); color: var(--tint);
+}
+
+/* Footer */
+.foot { background: var(--ink-deep); color: var(--ink-soft); padding: 3.5rem 0; border-top: 1px solid var(--ink-line); }
+.foot .wrap { display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: space-between; align-items: center; }
+.foot .eyebrow { margin: 0; }
+
+/* Page routing: only the active page is shown */
+.page { display: none; }
+.page.is-active { display: block; }
+.page:not(#page-home) { padding-top: var(--nav-h); }
+
+@media (max-width: 720px) {
+  .nav-links a { padding: 0.5rem 0.5rem; font-size: 10px; letter-spacing: 0.09em; }
+  .brand span { display: none; }
+  .triptych { grid-template-columns: 1fr; }
+}
+
+:focus-visible { outline: 2px solid var(--tint); outline-offset: 3px; }
+
+/* ============================================================================
+   TEAM ROSTER AND MEMBER DIALOG
+   The photographs arrive from ten different sources at ten different qualities.
+   Rather than pretend otherwise, every portrait is held in a navy duotone so
+   the grid reads as one set, and resolves to full colour on hover. That is the
+   same idea as the cover: the structure is there, the instrument reveals it.
+   ========================================================================== */
+
+.team-head {
+  display: flex; align-items: baseline; gap: 1.2rem;
+  padding-bottom: 1rem; border-bottom: 1px solid var(--paper-line);
+}
+.team-head .eyebrow { margin: 0; }
+.team-q { margin: 0; margin-right: auto; font-size: 0.95rem; color: var(--on-paper-2); }
+.team-n { margin: 0; font-family: var(--label); font-weight: 700; font-size: 13px; color: var(--on-paper-2); }
+
+/* Hairlines are drawn on the cards themselves rather than as a gap over a
+   coloured background. With a grid background, a row that is not full renders
+   its empty cells as visible grey panels. */
+.roster {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+@media (min-width: 620px)  { .roster { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 900px)  { .roster { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 1360px) { .roster { grid-template-columns: repeat(5, 1fr); } }
+
+.pcard {
+  appearance: none; border: 0; cursor: pointer; text-align: left;
+  background: var(--paper); padding: 1.15rem 1.15rem 1.4rem;
+  font: inherit; color: inherit;
+  /* A button centres its content block vertically by default, so a card whose
+     name wraps to two lines pushes its photograph down out of line with the
+     rest of the row. Flex-column pins everything to the top. */
+  display: flex; flex-direction: column; align-items: stretch;
+  border-right: 1px solid var(--paper-line);
+  border-bottom: 1px solid var(--paper-line);
+  transition: background 0.22s ease;
+}
+.pcard:hover { background: var(--paper-2); }
+
+.pcard-frame {
+  display: block; position: relative; aspect-ratio: 1; overflow: hidden;
+  background: var(--ink); margin-bottom: 0.95rem;
+  /* isolate: keeps the blend below contained to this frame. Without it the
+     overlay composites against the page instead of the photograph. */
+  isolation: isolate;
+  /* The blend preserves luminance, so a headshot cut out on white stays white
+     while the rest of the grid reads dark. This levels them. The filter sits on
+     the frame, not the image, so it does not break the blend underneath it. */
+  filter: contrast(1.07) brightness(0.86);
+  transition: filter 0.55s ease;
+}
+.pcard:hover .pcard-frame,
+.pcard:focus-visible .pcard-frame { filter: none; }
+/* No filter on the image itself. A filter promotes it to its own stacking
+   context, and the overlay then blends with the frame's flat background rather
+   than with the photograph, which renders every portrait as a solid block. */
+.pcard-frame img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transform: scale(1.01);
+  transition: transform 0.55s ease;
+}
+/* The navy wash. mix-blend-mode: color keeps the luminance of the photograph
+   and replaces its hue with the brand indigo. */
+.pcard-frame::after {
+  content: ""; position: absolute; inset: 0;
+  background: var(--ink); mix-blend-mode: color; opacity: 1;
+  transition: opacity 0.55s ease;
+}
+.pcard:hover .pcard-frame img,
+.pcard:focus-visible .pcard-frame img { transform: scale(1.045); }
+.pcard:hover .pcard-frame::after,
+.pcard:focus-visible .pcard-frame::after { opacity: 0; }
+
+.pcard-name {
+  display: block; font-family: var(--display); text-transform: uppercase;
+  letter-spacing: 0.05em; font-size: 0.93rem; line-height: 1.25; color: var(--on-paper);
+}
+.pcard-meta {
+  display: block; margin-top: 0.4rem;
+  font-family: var(--label); font-weight: 700; font-size: 12.5px; letter-spacing: 0.05em;
+  text-transform: uppercase; color: var(--on-paper-2);
+}
+
+/* --- Dialog --------------------------------------------------------------- */
+
+/* An author `display` rule beats the browser's own [hidden] rule, so the
+   dialog must be hidden explicitly. Without this it sits invisible over the
+   whole page and swallows every click. */
+.modal { position: fixed; inset: 0; z-index: 100; display: none; place-items: center; padding: var(--pad); }
+.modal:not([hidden]) { display: grid; }
+.modal-scrim {
+  position: absolute; inset: 0; background: rgba(3, 5, 31, 0.72);
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  opacity: 0; transition: opacity 0.22s ease;
+}
+.modal.is-open .modal-scrim { opacity: 1; }
+
+.modal-card {
+  position: relative; z-index: 1;
+  width: min(900px, 100%); max-height: 86vh; overflow-y: auto;
+  background: var(--ink); color: var(--white);
+  border: 1px solid var(--ink-line);
+  box-shadow: 0 50px 120px -40px rgba(0, 0, 0, 0.9);
+  opacity: 0; transform: translateY(14px) scale(0.985);
+  transition: opacity 0.24s ease, transform 0.24s cubic-bezier(.2,.7,.3,1);
+}
+.modal.is-open .modal-card { opacity: 1; transform: none; }
+
+.modal-close {
+  position: absolute; top: 0.9rem; right: 0.9rem; z-index: 2;
+  appearance: none; cursor: pointer;
+  background: rgba(255,255,255,0.09); border: 1px solid var(--ink-line); color: var(--white);
+  font-family: var(--label); font-weight: 700; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase;
+  padding: 0.45rem 0.8rem; border-radius: 3px;
+  transition: background 0.18s ease;
+}
+.modal-close:hover { background: rgba(255,255,255,0.18); }
+
+.modal-body { display: grid; }
+@media (min-width: 700px) { .modal-body { grid-template-columns: 246px 1fr; } }
+
+.modal-portrait { background: var(--ink-deep); }
+.modal-portrait img { width: 100%; height: 100%; max-height: 320px; object-fit: cover; display: block; }
+@media (min-width: 700px) { .modal-portrait img { max-height: none; } }
+
+.modal-text { padding: 2.2rem 2.3rem 2.4rem; }
+.modal-text h3 {
+  font-family: var(--display); text-transform: uppercase; letter-spacing: 0.045em;
+  font-size: clamp(1.25rem, 2.6vw, 1.7rem); line-height: 1.16; color: var(--white);
+}
+.modal-meta {
+  font-family: var(--label); font-weight: 700; font-size: 13px; letter-spacing: 0.05em;
+  text-transform: uppercase; color: var(--tint); margin: 0.7rem 0 1.6rem;
+}
+.modal-why {
+  margin: 0 0 1.6rem; padding-left: 1.1rem;
+  border-left: 2px solid var(--tint);
+  font-family: var(--display); font-size: 1.05rem; line-height: 1.45; color: var(--white);
+}
+.modal-bio { margin: 0; color: var(--ink-soft); font-size: 0.96rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pcard-frame img, .pcard-frame::after, .modal-card, .modal-scrim { transition: none; }
+}
+
+.chip-mark { border-color: var(--on-paper); color: var(--on-paper); }
+
+/* ============================================================================
+   CONTACT FORM
+   Hairline underlines rather than boxed inputs, so the form belongs to the same
+   rule system as the tables and grids elsewhere on the site.
+   ========================================================================== */
+
+.cform { margin-top: 3.2rem; max-width: 780px; }
+
+.cgrid { display: grid; gap: 0 2.5rem; }
+@media (min-width: 660px) { .cgrid { grid-template-columns: 1fr 1fr; } }
+
+.cfield { display: block; margin-bottom: 2rem; }
+.cfield > span {
+  display: block; margin-bottom: 0.6rem;
+  font-family: var(--label); font-weight: 700;
+  font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase;
+  color: var(--tint);
+}
+.cfield input,
+.cfield textarea {
+  width: 100%; display: block;
+  background: transparent; color: var(--white);
+  border: 0; border-bottom: 1px solid var(--ink-line);
+  padding: 0.55rem 0; font-family: var(--body); font-size: 1.02rem; line-height: 1.5;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.cfield textarea { resize: vertical; min-height: 7.5rem; }
+.cfield input:hover,
+.cfield textarea:hover { border-bottom-color: rgba(255,255,255,0.3); }
+.cfield input:focus,
+.cfield textarea:focus {
+  outline: none; border-bottom-color: var(--tint);
+  background: rgba(255,255,255,0.04);
+}
+
+.cerror {
+  margin: 0 0 1.5rem; padding: 0.7rem 0.9rem;
+  border: 1px solid var(--tint); border-left-width: 3px;
+  color: var(--white); font-size: 0.95rem;
+  background: rgba(255,255,255,0.05);
+}
+
+.crow { display: flex; flex-wrap: wrap; gap: 1.2rem 1.8rem; align-items: center; }
+
+.cbtn {
+  appearance: none; cursor: pointer;
+  background: var(--white); color: var(--ink); border: 1px solid var(--white);
+  font-family: var(--label); font-weight: 700;
+  font-size: 15px; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 0.75rem 1.7rem;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+.cbtn:hover { background: transparent; color: var(--white); }
+
+.cnote { margin: 0; font-size: 0.92rem; color: var(--ink-soft); max-width: 42ch; }
+.cnote a, .foot a { color: var(--tint); }
+
+/* Autofill on WebKit repaints the field white. Force it back to the ground. */
+.cfield input:-webkit-autofill,
+.cfield textarea:-webkit-autofill {
+  -webkit-text-fill-color: var(--white);
+  -webkit-box-shadow: 0 0 0 1000px var(--ink) inset;
+}
+
+/* Honeypot. Off-screen rather than display:none, and out of the tab order via
+   tabindex, so a person can neither see it nor reach it while a crawler that
+   fills every field still trips it. */
+.hp {
+  position: absolute !important;
+  left: -9999px; top: auto;
+  width: 1px; height: 1px; overflow: hidden;
+  opacity: 0; pointer-events: none;
+}
+
+/* Field-level validation. The palette has no red in it, so an invalid field is
+   marked the way the rest of the site marks emphasis: the underline thickens to
+   the pale indigo and a message appears beneath it. The text does the work. */
+/* display must be declared only on the :not([hidden]) selector. An author
+   display rule outranks the browser's own [hidden] rule, which would leave
+   every field's error marker on screen with no error to report. */
+.cfield-error { display: none; }
+.cfield-error:not([hidden]) {
+  display: block; margin-top: 0.55rem;
+  font-style: normal; font-size: 0.9rem; line-height: 1.45;
+  color: var(--tint);
+}
+.cfield-error::before { content: "\2192\00a0"; }
+
+.cfield input.is-invalid,
+.cfield textarea.is-invalid {
+  border-bottom-color: var(--tint);
+  border-bottom-width: 2px;
+}
+
+.cerror-detail { display: block; margin-top: 0.5rem; color: var(--ink-soft); font-size: 0.88rem; }
+
+/* Success. Replaces the form outright. */
+.csuccess {
+  margin-top: 3.2rem; max-width: 780px;
+  padding: 1.8rem 1.9rem;
+  border: 1px solid var(--ink-line); border-left: 3px solid var(--tint);
+  background: rgba(255, 255, 255, 0.045);
+}
+.csuccess-head {
+  margin: 0 0 0.6rem; color: var(--white);
+  font-family: var(--label); font-weight: 700;
+  font-size: 17px; letter-spacing: 0.05em; text-transform: uppercase;
+}
+.csuccess-body { margin: 0; color: var(--ink-soft); font-size: 1rem; }
+
+.cbtn[disabled] { opacity: 0.55; cursor: default; }
+.cbtn[disabled]:hover { background: var(--white); color: var(--ink); }
