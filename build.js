@@ -14,7 +14,12 @@
    WHAT HAPPENS IF YOU FORGET TO RUN IT. Nothing breaks for visitors. The
    browser still rebuilds every page from content.js on load, so people see your
    edit immediately. Only scrapers and search engines would be looking at the
-   older text until the next build.
+   older text until the next build. Netlify also runs this on every deploy, so
+   editing content.js on GitHub is enough on its own.
+
+   Running it twice in a row produces the same file. If that ever stops being
+   true, something is appending rather than replacing, and the file will grow on
+   every build until somebody notices.
    ========================================================================== */
 
 const fs = require('fs');
@@ -42,23 +47,28 @@ if (!pages) {
 }
 
 let html = read('index.html');
-let count = 0;
 
-for (const name of Object.keys(pages)) {
-  const body = pages[name]();
+// Replace the whole <main> block in one go, rather than each <section>
+// individually. The generated markup contains its own <section> tags, so a
+// per-section match cannot tell where one page's markup ends and the next
+// begins: it stops early, leaves the tail behind, and the file grows on every
+// build. Rewriting the entire block is idempotent by construction.
+const MAIN = /<main>[\s\S]*<\/main>/;
+if (!MAIN.test(html)) {
+  console.error('Build failed: index.html has no <main> block to write into.');
+  process.exit(1);
+}
+
+const sections = Object.keys(pages).map(name => {
   // Home is the page a visitor lands on, so it carries is-active in the baked
   // markup. Without it, someone with JavaScript disabled would see nothing.
   const cls = name === 'home' ? 'page is-active' : 'page';
-  const re = new RegExp(
-    '<section class="[^"]*" id="page-' + name + '">[\\s\\S]*?</section>\\s*(?=<section|</main>)'
-  );
-  if (!re.test(html)) {
-    console.error('Build failed: could not find the shell for page "' + name + '" in index.html.');
-    process.exit(1);
-  }
-  html = html.replace(re, '<section class="' + cls + '" id="page-' + name + '">' + body + '</section>\n  ');
-  count++;
-}
+  return '    <section class="' + cls + '" id="page-' + name + '">' +
+         pages[name]() + '</section>';
+});
+
+html = html.replace(MAIN, '<main>\n' + sections.join('\n') + '\n  </main>');
 
 fs.writeFileSync(path.join(dir, 'index.html'), html);
-console.log('Built ' + count + ' pages into index.html (' + Math.round(html.length / 1024) + ' KB).');
+console.log('Built ' + sections.length + ' pages into index.html (' +
+            Math.round(html.length / 1024) + ' KB).');
