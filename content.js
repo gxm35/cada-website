@@ -353,11 +353,6 @@ const CONTENT = {
      ------------------------------------------------------------------------ */
   recruitment: {
     lead: "CADA recruits from Claremont McKenna and Harvey Mudd across all three practices.",
-    training: {
-      title: "The analyst training program",
-      body: "New analysts are trained on the federal data sources the work actually runs on: USAspending, FPDS, SEC EDGAR, and the procurement records underneath them. You learn to find what a company has won, from whom, and on what terms, which is a skill almost nobody graduates with."
-    },
-    // DRAFT. Replace all three with the real cycle before this is used to recruit.
     timeline: "To be determined.",
     eligibility: "Open to every class year at Claremont McKenna and Harvey Mudd. No prior defense background is expected. What matters is that you can pick up an unfamiliar technical or regulatory subject quickly and write about it clearly.",
     process: "A short written application, then a conversation with two members about something you have built or analysed, then a final round working through a live problem of the kind CADA actually takes on.",

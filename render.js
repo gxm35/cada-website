@@ -292,7 +292,6 @@ function joinHTML() {
 
     <section class="band band-paper">
       <div class="wrap">
-        ${sectionHead('Training', C.recruitment.training.title, C.recruitment.training.body, true)}
         <div class="joingrid">
           <div>
             <p class="eyebrow on-paper">Who we look for</p>
@@ -440,6 +439,14 @@ async function submitContact(e) {
         organization: org || 'Not given',
         email: email,
         message: message,
+        // Every submission carries the time it was sent. Two people writing the
+        // same short message, or the same person testing twice, would otherwise
+        // produce byte identical emails under an identical subject, which Gmail
+        // collapses into one thread and can drop as a duplicate. That reads as
+        // messages going missing when they were in fact delivered.
+        submitted: new Date().toLocaleString('en-US', {
+          dateStyle: 'medium', timeStyle: 'short'
+        }),
         botcheck: el('cform').botcheck.checked
       })
     });

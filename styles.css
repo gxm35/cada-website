@@ -94,6 +94,13 @@ html { background: var(--ink-deep); }
 
 body {
   margin: 0;
+  /* Short pages such as Contact ended a long way up the screen, leaving the
+     footer stranded and a tall block of ground beneath it. The body now fills
+     the viewport and the last band on a page stretches to take up the slack, so
+     every page ends at the bottom of the window the way the long ones do. */
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
   background: var(--paper);
   color: var(--on-paper);
   font-family: var(--body);
@@ -334,9 +341,12 @@ a { color: inherit; }
 .foot .eyebrow { margin: 0; }
 
 /* Page routing: only the active page is shown */
+main { flex: 1 0 auto; display: flex; flex-direction: column; }
 .page { display: none; }
-.page.is-active { display: block; }
+.page.is-active { display: flex; flex-direction: column; flex: 1 0 auto; }
+.page.is-active > .band:last-child { flex: 1 0 auto; }
 .page:not(#page-home) { padding-top: var(--nav-h); }
+.foot { flex-shrink: 0; }
 
 @media (max-width: 720px) {
   .nav-links a { padding: 0.5rem 0.5rem; font-size: 10px; letter-spacing: 0.09em; }
