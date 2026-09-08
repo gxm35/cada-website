@@ -142,7 +142,6 @@ function clientRow() {
     <div class="clientrow">
       <p class="eyebrow">${esc(C.clientRow.caption)}</p>
       <ul>${named.map(e => `<li>${esc(e.client)}</li>`).join('')}</ul>
-      <p class="clientrow-note">${esc(C.clientRow.note)}</p>
     </div>`;
 }
 
@@ -178,15 +177,21 @@ function engagementsHTML() {
         const title = named ? e.client : e.sector;
         return `
           <article class="engagement">
-            <div class="engagement-head">
+            <div class="eg-id">
+              ${e.logo ? `<img class="eg-logo" src="${esc(e.logo)}" alt="${esc(title)}" loading="lazy">` : ''}
               <h3>${esc(title)}</h3>
-              ${e.note ? `<span class="chip chip-mark">${esc(e.note)}</span>` : ''}
-              <span class="chip">${txt(e.period)}</span>
-              ${named ? '' : '<span class="chip">Client name withheld</span>'}
+              <p class="eg-meta">${named && e.sector ? txt(e.sector) : ''}</p>
+              <p class="eg-tags">
+                <span class="chip">${txt(e.period)}</span>
+                ${e.note ? `<span class="chip chip-mark">${esc(e.note)}</span>` : ''}
+                ${named ? '' : '<span class="chip">Client name withheld</span>'}
+              </p>
+              <p class="eg-summary">${txt(e.summary)}</p>
             </div>
-            <p class="lede">${txt(e.summary)}</p>
-            ${e.work.map(w => `
-              <div class="workrow"><p class="k">${esc(w.practice)}</p><p class="d">${txt(w.detail)}</p></div>`).join('')}
+            <div class="eg-work">
+              ${e.work.map(w => `
+                <div class="workrow"><p class="k">${esc(w.practice)}</p><p class="d">${txt(w.detail)}</p></div>`).join('')}
+            </div>
           </article>`;
       }).join('');
 
@@ -194,7 +199,7 @@ function engagementsHTML() {
     <section class="band band-paper">
       <div class="wrap">
         ${sectionHead('Engagements', 'Selected work',
-          "Named with each client's permission. Each entry says which practices worked the account and what they produced.", true)}
+          'Each entry says which practices worked the account and what they produced.', true)}
         ${body}
       </div>
     </section>`;
@@ -230,7 +235,7 @@ function teamHTML() {
     <section class="band band-paper">
       <div class="wrap">
         ${sectionHead(esc(C.org.memberCount) + ' members · ' + esc(C.org.colleges), 'The team',
-          'Grouped by practice, because the practice is what a client is buying. Select anyone to read their background.', true)}
+          'Grouped by practice. Select anyone to read their background.', true)}
         ${groups}
       </div>
     </section>`;

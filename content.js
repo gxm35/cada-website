@@ -117,6 +117,17 @@ const CONTENT = {
        "anonymized"  shows the "sector" line instead of the name
        "withheld"    the engagement does not appear on the site at all
 
+     LOGOS. Each engagement can carry a logo, which appears above the client
+     name on the Engagements page:
+
+       logo: "assets/clients/flyability.png",
+
+     Put the file in assets/clients/. Nothing has one yet, on purpose: being
+     allowed to name a client is not the same as being allowed to use their
+     logo, which is a trademark and implies their endorsement. Ask each client
+     for the file and for permission to use it, then add the line. Wide, roughly
+     4:1 files on a transparent background work best.
+
      Move an engagement from "withheld" to "anonymized" once CADA agrees the
      work may be described. Move it to "named" only when the client has given
      written permission. Do not skip that step.

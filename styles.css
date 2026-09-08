@@ -248,10 +248,38 @@ a { color: inherit; }
 }
 .proof .l { font-family: var(--label); font-weight: 600; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--tint); line-height: 1.5; }
 
-/* Engagement */
-.engagement { border-top: 1px solid var(--paper-line); padding-top: 1.9rem; margin-top: 2.2rem; }
-.engagement-head { display: flex; flex-wrap: wrap; gap: 0.8rem 1.5rem; align-items: baseline; margin-bottom: 1.2rem; }
-.engagement-head h3 { font-family: var(--display); text-transform: uppercase; letter-spacing: 0.04em; font-size: 1.35rem; }
+/* Engagement.
+   One grid per entry: who the client is on the left, what the practices did on
+   the right. Previously the summary wrapped at about 60 characters directly
+   above rows running the full page at about 150, which is two different
+   measures in one block and reads as untidy however the words are written. */
+.engagement {
+  border-top: 1px solid var(--paper-line);
+  padding-top: 2rem; margin-top: 2.4rem;
+  display: grid; gap: 1.5rem 4rem;
+}
+@media (min-width: 900px) {
+  .engagement { grid-template-columns: minmax(250px, 0.85fr) minmax(0, 1.5fr); }
+}
+.eg-id h3 {
+  font-family: var(--display); text-transform: uppercase;
+  letter-spacing: 0.035em; font-size: 1.35rem; line-height: 1.15; margin: 0;
+}
+.eg-logo {
+  display: block; height: 34px; width: auto; max-width: 190px;
+  object-fit: contain; object-position: left center; margin-bottom: 0.9rem;
+}
+.eg-meta { margin: 0.5rem 0 0; font-size: 0.93rem; color: var(--on-paper-2); }
+.eg-meta:empty { display: none; }
+.eg-tags { display: flex; flex-wrap: wrap; gap: 0.45rem; margin: 0.9rem 0 0; }
+.eg-summary { margin: 1rem 0 0; font-size: 1rem; color: var(--on-paper-2); }
+
+/* In a column this narrow a 150px label gutter wastes most of the width, so the
+   practice name sits above its paragraph instead of beside it. */
+.eg-work .workrow { grid-template-columns: 1fr; gap: 0.4rem; padding: 0 0 1.2rem; border-top: 0; }
+.eg-work .workrow + .workrow { padding-top: 1.2rem; border-top: 1px solid var(--paper-line); }
+.eg-work .workrow .k { padding-top: 0; }
+.eg-work .workrow .d { max-width: 68ch; }
 .chip {
   font-family: var(--label); font-weight: 600; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase;
   border: 1px solid var(--paper-line); border-radius: 999px; padding: 0.25rem 0.7rem; color: var(--on-paper-2);
