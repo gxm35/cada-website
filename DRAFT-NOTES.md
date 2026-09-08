@@ -38,12 +38,29 @@ Every drafted item is also flagged with a `// DRAFT` comment at its place in
 | **Chariot Defense, the work** | Market sizing from federal procurement records, and a procurement path from Defense Innovation Unit prototype through to a program of record | Nothing on record says what CADA did for Chariot. Written to be plausible against what Chariot actually builds. It is a guess |
 | **Seeing Systems, the work** | Export control and sourcing rules facing a non-US manufacturer, plus a competitive read of small unmanned systems awards | Same. Plausible against what the company does, entirely invented as CADA's work |
 | **Engagement model**: team size, cadence, deliverable | Three to five analysts, twelve-week semester, check-in every two weeks, written analysis plus presentation | Nothing describes how CADA staffs or runs an account. The Armtec call notes show CADA asking a client these same questions, which suggests the answers were not settled |
-| **Recruiting**: timeline, eligibility, process | Autumn applications closing before autumn break, smaller January round, three stage process | Entirely invented. **Do not use this to recruit anyone.** A published application deadline that is wrong is worse than none |
+| **Recruiting**: eligibility and process | Open to all class years, three stage process | Invented. The **timeline now reads "To be determined"** rather than an invented date, which was the most dangerous item on this list |
 | **The canonical description** | "A student consulting group of Claremont McKenna College and Harvey Mudd College that gives aerospace and defense companies engineering, financial, and policy analysis from a single team" | Not invented so much as unratified. It is a proposal. It should be the one sentence every member uses in the same words, and that is a decision the group makes, not a sentence a website assigns |
+
+## Settled since, from the club management files
+
+- **CADA is a recognised CMC organisation.** The club files include the ASCMC
+  reimbursement form, the campus work order system, and the space and event
+  request forms, plus the ASCMC Club Leader Training deck. Those are only issued
+  to chartered clubs. Harvey Mudd standing is still unconfirmed.
+- **Armtec is correctly off the site.** The outreach tracker lists Flyability,
+  Seeing Systems and Chariot Defense as **Completed** and Armtec as **Reached
+  Out**. It was never an engagement.
+- **The roster labels the practice "Finance"**, not "Financial", which is now
+  what the site says.
+- **Member LinkedIn profiles** are on the team page, from the roster file.
+  Member email addresses were in the same file and are deliberately not used.
+
+The tracker's Project Scope, Project Start, Completion and Deliverable columns
+are all empty, so it added nothing to the two invented engagement summaries.
+Those remain invented.
 
 ## Still genuinely unknown
 
-- Whether CADA is a recognised student organisation at either college, which
-  governs whether the college names and marks may appear here at all.
+- Whether CADA is a recognised organisation at **Harvey Mudd**. CMC is settled.
 - Whether the three named clients agreed to being named on a public indexed
   website, as distinct from being mentioned in a meeting.

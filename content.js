@@ -92,6 +92,11 @@ const CONTENT = {
      credentials and presents them as organizational results is the fastest way
      to lose a technical reader.
      ------------------------------------------------------------------------ */
+  clientRow: {
+    caption: "Companies we have worked with",
+    note: "Named with each client's permission."
+  },
+
   proof: {
     caption: "Modeled in a recent engagement",
     stats: [
@@ -210,6 +215,7 @@ const CONTENT = {
   members: [
     {
       name: "Shelby Tang",
+      linkedin: "https://www.linkedin.com/in/shelbytang-",
       photo: "assets/people/shelby-tang.jpg",
       why: "I joined CADA to work directly to strengthen national security.", practice: "financial", school: "CMC", year: "'29",
       role: "Founder",
@@ -217,6 +223,7 @@ const CONTENT = {
     },
     {
       name: "Spencer Michaelson",
+      linkedin: "https://www.linkedin.com/in/spencer-michaelson-engineering",
       photo: "assets/people/spencer-michaelson.jpg",
       why: "I had a strong interest in the aerospace and defense industries for nearly 15 years, and I saw CADA as a way to work on engineering problems across a variety of companies.", practice: "technical", school: "HMC", year: "'28",
       role: "Chief Technical Analyst",
@@ -224,6 +231,7 @@ const CONTENT = {
     },
     {
       name: "Ava Cheng",
+      linkedin: "https://www.linkedin.com/in/ava-cheng-52644b2a9",
       photo: "assets/people/ava-cheng.jpg",
       why: "I joined CADA to explore and expand my passion for avionics in further detail.", practice: "technical", school: "HMC", year: "'29",
       role: "",
@@ -231,6 +239,7 @@ const CONTENT = {
     },
     {
       name: "Charlotte Wong",
+      linkedin: "https://www.linkedin.com/in/charlottehailewong",
       photo: "assets/people/charlotte-wong.jpg",
       why: "I joined CADA to explore my passion for space and defense.", practice: "technical", school: "HMC", year: "'29",
       role: "",
@@ -238,6 +247,7 @@ const CONTENT = {
     },
     {
       name: "Marcel Astrakhan",
+      linkedin: "https://www.linkedin.com/in/marcel-astrakhan",
       photo: "assets/people/marcel-astrakhan.jpg",
       why: "I joined CADA because I want to use data to help inform the usage of company products.", practice: "technical", school: "CMC", year: "'29",
       role: "",
@@ -245,6 +255,7 @@ const CONTENT = {
     },
     {
       name: "Krish Malhotra",
+      linkedin: "https://www.linkedin.com/in/krish-malhotra",
       photo: "assets/people/krish-malhotra.jpg",
       why: "I joined CADA because it puts students directly alongside the founders building the next generation of America's leading defense technology sector.", practice: "financial", school: "CMC", year: "'28",
       role: "",
@@ -252,6 +263,7 @@ const CONTENT = {
     },
     {
       name: "Lalita Poolvoralaks",
+      linkedin: "https://www.linkedin.com/in/lalita-poolvoralaks-104139260",
       photo: "assets/people/lalita-poolvoralaks.jpg",
       why: "I wanted to get experience conducting financial analyses for startups.", practice: "financial", school: "CMC", year: "'27",
       role: "",
@@ -259,6 +271,7 @@ const CONTENT = {
     },
     {
       name: "Shayan Abbasi",
+      linkedin: "https://www.linkedin.com/in/shayan-abbasi-492b6a26a",
       photo: "assets/people/shayan-abbasi.jpg",
       why: "I am passionate about CADA because it combines my interests in economics and government policy, and lets me help aerospace and defense companies navigate financial and regulatory challenges.", practice: "financial", school: "CMC", year: "'29",
       role: "",
@@ -266,6 +279,7 @@ const CONTENT = {
     },
     {
       name: "Jasper Langley-Hawthorne",
+      linkedin: "https://www.linkedin.com/in/jasper-langley-hawthorne",
       photo: "assets/people/jasper-langley-hawthorne.jpg",
       why: "I joined CADA after researching the political economy of security for a professor on campus, and wanted to apply what I had learned to navigating policy in the real world.", practice: "policy", school: "CMC", year: "'27",
       role: "",
@@ -273,12 +287,22 @@ const CONTENT = {
     },
     {
       name: "Andrew Nelson",
+      linkedin: "https://www.linkedin.com/in/andrew-nelson-360254375",
       photo: "assets/people/andrew-nelson.jpg",
       why: "I wanted a chance to contribute to real defense companies.", practice: "policy", school: "CMC", year: "'29",
       role: "",
       bio: "Andrew studies International Relations at CMC and is a cadet in U.S. Army ROTC. He brings a working understanding of how the military operates as a customer, from doctrine to procurement, and supports CADA clients on the policy side by mapping the regulatory and geopolitical context defense companies need to navigate."
     }
   ],
+
+  /* --------------------------------------------------------------------------
+     CLOSING CALL TO ACTION, home page
+     ------------------------------------------------------------------------ */
+  cta: {
+    heading: "Bring us the question you have been putting off.",
+    body: "Scoping costs you one call. We will tell you plainly whether it is something we can help with.",
+    button: "Start a conversation"
+  },
 
   /* --------------------------------------------------------------------------
      CONTACT
@@ -316,7 +340,7 @@ const CONTENT = {
       body: "New analysts are trained on the federal data sources the work actually runs on: USAspending, FPDS, SEC EDGAR, and the procurement records underneath them. You learn to find what a company has won, from whom, and on what terms, which is a skill almost nobody graduates with."
     },
     // DRAFT. Replace all three with the real cycle before this is used to recruit.
-    timeline: "Applications open in the first weeks of the autumn semester and close before autumn break, with interviews the following week. A smaller round runs in January for the spring.",
+    timeline: "To be determined.",
     eligibility: "Open to every class year at Claremont McKenna and Harvey Mudd. No prior defense background is expected. What matters is that you can pick up an unfamiliar technical or regulatory subject quickly and write about it clearly.",
     process: "A short written application, then a conversation with two members about something you have built or analysed, then a final round working through a live problem of the kind CADA actually takes on.",
     looking: [

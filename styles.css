@@ -76,7 +76,7 @@
   --body: "Charis SIL", "Charter", "Bitstream Charter", Georgia, serif;
 
   /* Rhythm */
-  --pad: clamp(1.5rem, 4vw, 6rem);
+  --pad: clamp(1.25rem, 3.4vw, 4.5rem);
   --max: 1680px;
   --nav-h: 68px;
 }
@@ -158,7 +158,7 @@ a { color: inherit; }
    drawn from the LiDAR and ultrasonic survey work the team actually does. */
 #field { position: absolute; inset: 0; width: 100%; height: 100%; }
 
-.hero-inner { position: relative; z-index: 2; padding: calc(var(--nav-h) + 3rem) var(--pad) 6rem; }
+.hero-inner { position: relative; z-index: 2; padding: calc(var(--nav-h) + 2rem) var(--pad) 4.5rem; }
 
 /* The mark is a cut-out on transparency rather than the square tile it ships
    in, so it sits on the ground directly instead of inside a visible panel, and
@@ -208,23 +208,23 @@ a { color: inherit; }
 }
 
 /* ------------------------------------------------------------ SECTIONS ---- */
-.band { padding: clamp(4rem, 9vw, 8rem) 0; }
+.band { padding: clamp(2.75rem, 5.2vw, 4.75rem) 0; }
 .band-paper { background: var(--paper); color: var(--on-paper); }
 .band-ink   { background: var(--ink);   color: var(--white); }
 .band-deep  { background: var(--ink-deep); color: var(--white); }
 
-.band h2 {
+.band h2, .shead h2 {
   font-family: var(--display); text-transform: uppercase;
   font-size: clamp(1.6rem, 3.4vw, 3.1rem); letter-spacing: 0.015em;
-  line-height: 1.14; margin: 0 0 1.4rem; max-width: 22ch;
+  line-height: 1.12; margin: 0 0 0.9rem; max-width: 20ch;
 }
 .lede { max-width: 64ch; font-size: 1.13rem; color: var(--on-paper-2); }
 .band-ink .lede, .band-deep .lede { color: var(--ink-soft); }
 
 /* Practice cards */
-.practices { display: grid; gap: 1px; background: var(--paper-line); margin-top: 3.5rem; border-block: 1px solid var(--paper-line); }
+.practices { display: grid; gap: 1px; background: var(--paper-line); margin-top: 2.4rem; border-block: 1px solid var(--paper-line); }
 @media (min-width: 860px) { .practices { grid-template-columns: repeat(3, 1fr); } }
-.practice { background: var(--paper); padding: 2.4rem 2rem 2.8rem; }
+.practice { background: var(--paper); padding: 1.9rem 1.7rem 2rem; }
 .practice-q {
   font-family: var(--display); text-transform: uppercase;
   font-size: 1.18rem; letter-spacing: 0.035em; line-height: 1.25;
@@ -238,9 +238,9 @@ a { color: inherit; }
 }
 
 /* Proof strip */
-.proof { display: grid; gap: 1px; background: var(--ink-line); border-block: 1px solid var(--ink-line); margin-top: 3rem; }
+.proof { display: grid; gap: 1px; background: var(--ink-line); border-block: 1px solid var(--ink-line); margin-top: 1.8rem; }
 @media (min-width: 700px) { .proof { grid-template-columns: repeat(4, 1fr); } }
-.proof div { background: var(--ink-deep); padding: 2rem 1.4rem; }
+.proof div { background: var(--ink-deep); padding: 1.5rem 1.3rem; }
 .proof .v {
   font-family: var(--display); color: var(--white);
   font-size: clamp(1.8rem, 3.6vw, 3.2rem); letter-spacing: 0.01em; line-height: 1;
@@ -249,30 +249,30 @@ a { color: inherit; }
 .proof .l { font-family: var(--label); font-weight: 600; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--tint); line-height: 1.5; }
 
 /* Engagement */
-.engagement { border-top: 1px solid var(--paper-line); padding-top: 2.4rem; margin-top: 3rem; }
+.engagement { border-top: 1px solid var(--paper-line); padding-top: 1.9rem; margin-top: 2.2rem; }
 .engagement-head { display: flex; flex-wrap: wrap; gap: 0.8rem 1.5rem; align-items: baseline; margin-bottom: 1.2rem; }
 .engagement-head h3 { font-family: var(--display); text-transform: uppercase; letter-spacing: 0.04em; font-size: 1.35rem; }
 .chip {
   font-family: var(--label); font-weight: 600; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase;
   border: 1px solid var(--paper-line); border-radius: 999px; padding: 0.25rem 0.7rem; color: var(--on-paper-2);
 }
-.workrow { display: grid; gap: 0.5rem 2.5rem; padding: 1.5rem 0; border-top: 1px solid var(--paper-line); }
+.workrow { display: grid; gap: 0.5rem 2.5rem; padding: 1.1rem 0; border-top: 1px solid var(--paper-line); }
 @media (min-width: 820px) { .workrow { grid-template-columns: 150px 1fr; } }
 .workrow .k { font-family: var(--label); font-weight: 600; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--on-paper-2); padding-top: 0.35rem; }
 .workrow .d { margin: 0; font-size: 0.98rem; }
 
 /* Team */
-.team-group { margin-top: 4rem; }
+.team-group { margin-top: 2.6rem; }
 .team-group > .eyebrow { padding-bottom: 1rem; border-bottom: 1px solid var(--paper-line); margin-bottom: 0; }
-.member { display: grid; gap: 0.6rem 2.5rem; padding: 2rem 0; border-bottom: 1px solid var(--paper-line); }
+.member { display: grid; gap: 0.6rem 2.5rem; padding: 1.5rem 0; border-bottom: 1px solid var(--paper-line); }
 @media (min-width: 820px) { .member { grid-template-columns: 260px 1fr; } }
 .member h3 { font-family: var(--display); text-transform: uppercase; letter-spacing: 0.045em; font-size: 1.1rem; line-height: 1.3; }
 .member .meta { font-family: var(--label); font-weight: 600; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--on-paper-2); margin-top: 0.5rem; }
 .member .bio { margin: 0; font-size: 0.98rem; color: var(--on-paper-2); }
 
 /* Steps */
-.steps { margin-top: 3rem; border-top: 1px solid var(--ink-line); }
-.step { display: grid; gap: 0.5rem 2.5rem; padding: 1.6rem 0; border-bottom: 1px solid var(--ink-line); }
+.steps { margin-top: 2.2rem; border-top: 1px solid var(--ink-line); }
+.step { display: grid; gap: 0.5rem 2.5rem; padding: 1.15rem 0; border-bottom: 1px solid var(--ink-line); }
 @media (min-width: 820px) { .step { grid-template-columns: 200px 1fr; } }
 .step .k { font-family: var(--display); text-transform: uppercase; letter-spacing: 0.09em; font-size: 1rem; color: var(--white); }
 .step .d { margin: 0; color: var(--ink-soft); font-size: 0.98rem; }
@@ -292,7 +292,7 @@ a { color: inherit; }
 }
 
 /* Footer */
-.foot { background: var(--ink-deep); color: var(--ink-soft); padding: 3.5rem 0; border-top: 1px solid var(--ink-line); }
+.foot { background: var(--ink-deep); color: var(--ink-soft); padding: 2.2rem 0; border-top: 1px solid var(--ink-line); }
 .foot .wrap { display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: space-between; align-items: center; }
 .foot .eyebrow { margin: 0; }
 
@@ -464,12 +464,12 @@ a { color: inherit; }
    rule system as the tables and grids elsewhere on the site.
    ========================================================================== */
 
-.cform { margin-top: 3.2rem; max-width: 780px; }
+.cform { margin-top: 2.2rem; max-width: 780px; }
 
 .cgrid { display: grid; gap: 0 2.5rem; }
 @media (min-width: 660px) { .cgrid { grid-template-columns: 1fr 1fr; } }
 
-.cfield { display: block; margin-bottom: 2rem; }
+.cfield { display: block; margin-bottom: 1.5rem; }
 .cfield > span {
   display: block; margin-bottom: 0.6rem;
   font-family: var(--label); font-weight: 600;
@@ -570,3 +570,125 @@ a { color: inherit; }
 
 .cbtn[disabled] { opacity: 0.55; cursor: default; }
 .cbtn[disabled]:hover { background: var(--white); color: var(--ink); }
+
+/* ============================================================================
+   SECTION HEADERS, CLIENT ROW, CALL TO ACTION, MOBILE MENU, REVEAL
+   ========================================================================== */
+
+/* Heading left, lede right. A short paragraph under a heading leaves a column
+   of dead page beside it and makes every section taller than it needs to be. */
+.shead { display: grid; gap: 0.9rem 3.5rem; align-items: start; margin-bottom: 0.5rem; }
+@media (min-width: 900px) {
+  .shead { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 0 4.5rem; }
+  .shead-r { padding-top: 0.45rem; }
+}
+.shead .eyebrow { margin-bottom: 0.85rem; }
+.shead h2 { margin-bottom: 0; }
+.shead .lede { margin: 0; }
+
+/* The clients, on the same dark band as the numbers, so the band carries two
+   kinds of proof instead of ending in empty ground. */
+.clientrow {
+  margin-top: 2.2rem; padding-top: 1.6rem;
+  border-top: 1px solid var(--ink-line);
+  display: grid; gap: 0.9rem 2.5rem; align-items: baseline;
+}
+@media (min-width: 860px) { .clientrow { grid-template-columns: auto 1fr auto; } }
+.clientrow .eyebrow { margin: 0; white-space: nowrap; }
+.clientrow ul {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-wrap: wrap; gap: 0.6rem 2.2rem;
+}
+.clientrow li {
+  font-family: var(--display); text-transform: uppercase;
+  letter-spacing: 0.04em; font-size: clamp(1rem, 1.7vw, 1.3rem); color: var(--white);
+}
+.clientrow-note { margin: 0; font-size: 0.85rem; color: var(--ink-soft); }
+
+/* Closing call to action */
+.cta-band { padding-block: clamp(2.5rem, 4.5vw, 4rem); }
+.cta { display: grid; gap: 1.6rem 3.5rem; align-items: center; }
+@media (min-width: 860px) { .cta { grid-template-columns: 1fr auto; } }
+.cta h2 { margin-bottom: 0.7rem; max-width: 18ch; }
+.cta .lede { margin: 0; max-width: 52ch; }
+.cta-btn { text-decoration: none; display: inline-block; white-space: nowrap; }
+
+/* Join page: the list and the way in, side by side */
+.joingrid { display: grid; gap: 2rem 3.5rem; margin-top: 2.2rem; }
+@media (min-width: 860px) { .joingrid { grid-template-columns: 1fr 1fr; } }
+.joingrid .plainlist { margin-top: 0; }
+.joincta {
+  border: 1px solid var(--paper-line); border-left: 3px solid var(--on-paper);
+  padding: 1.6rem 1.7rem; align-self: start;
+}
+.joincta p { color: var(--on-paper-2); font-size: 0.98rem; }
+.cbtn-dark {
+  background: var(--ink); color: var(--white); border-color: var(--ink);
+  text-decoration: none; display: inline-block; margin-top: 0.4rem;
+}
+.cbtn-dark:hover { background: transparent; color: var(--ink); }
+
+.modal-link { margin: -1rem 0 1.4rem; }
+.modal-link a { color: var(--tint); font-size: 0.9rem; }
+
+/* --- Mobile menu ---------------------------------------------------------
+   Six items will not fit across a phone: they overflowed the bar and the last
+   one could not be reached. Below the breakpoint they collapse behind a button
+   and open as a panel under the bar. */
+
+.navtoggle { display: none; }
+
+@media (max-width: 860px) {
+  .js .navtoggle {
+    display: flex; flex-direction: column; justify-content: center; gap: 4px;
+    width: 42px; height: 38px; padding: 0 9px; cursor: pointer;
+    background: transparent; border: 1px solid var(--ink-line); border-radius: 4px;
+    margin-left: auto;
+  }
+  .navtoggle span { display: block; height: 1.5px; background: var(--white); transition: transform 0.22s ease, opacity 0.22s ease; }
+  .nav.is-open .navtoggle span:nth-child(1) { transform: translateY(5.5px) rotate(45deg); }
+  .nav.is-open .navtoggle span:nth-child(2) { opacity: 0; }
+  .nav.is-open .navtoggle span:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
+
+  .nav .wrap { gap: 0.75rem; }
+  .brand { margin-right: 0; }
+
+  .js .nav-links {
+    position: fixed; top: var(--nav-h); left: 0; right: 0;
+    display: block; background: var(--ink);
+    border-bottom: 1px solid var(--ink-line);
+    max-height: calc(100svh - var(--nav-h)); overflow-y: auto;
+    transform: translateY(-8px); opacity: 0; pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+  .nav.is-open .nav-links { transform: none; opacity: 1; pointer-events: auto; }
+
+  .nav-links a {
+    display: block; padding: 1rem var(--pad); border-radius: 0;
+    border-top: 1px solid var(--ink-line);
+    font-size: 15px; letter-spacing: 0.05em; color: var(--white);
+  }
+  .nav-links a[aria-current="page"] { background: rgba(255,255,255,0.09); }
+}
+
+/* Below the menu breakpoint the brand wordmark is worth keeping: it is the
+   only thing naming the site once the links are hidden. */
+@media (max-width: 720px) {
+  .brand span { display: inline; font-size: 15px; letter-spacing: 0.1em; }
+  .brand img { width: 30px; }
+}
+@media (max-width: 420px) { .brand span { display: none; } }
+
+/* --- Reveal --------------------------------------------------------------- */
+/* Fails open by design. Nothing here is hidden by the stylesheet: the hiding
+   class is added by script and removed again when the section comes into view.
+   If the script never runs, never loads, or errors, no element ever gets the
+   class and the whole page is simply visible. The earlier version hid sections
+   in CSS and revealed them with script, which meant any failure in that script
+   left a blank site with no way for a visitor to tell there was content. */
+.reveal { transition: opacity 0.5s ease, transform 0.5s cubic-bezier(.2, .7, .3, 1); }
+.reveal.is-pre { opacity: 0; transform: translateY(14px); }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { transition: none; }
+  .reveal.is-pre { opacity: 1; transform: none; }
+}

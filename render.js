@@ -52,6 +52,20 @@ const el = (id) => document.getElementById(id);
 
 /* --- 2. Pages ------------------------------------------------------------- */
 
+/* A two column section header. The heading sits left and its lede sits right,
+   which fills the width instead of leaving a column of empty page beside a
+   short paragraph, and takes real height out of every section. */
+function sectionHead(eyebrow, heading, lede, onPaper) {
+  return `
+    <header class="shead">
+      <div class="shead-l">
+        <p class="eyebrow${onPaper ? ' on-paper' : ''}">${esc(eyebrow)}</p>
+        <h2>${txt(heading)}</h2>
+      </div>
+      ${lede ? `<div class="shead-r"><p class="lede">${txt(lede)}</p></div>` : ''}
+    </header>`;
+}
+
 function heroTriptych() {
   return C.practices.map(p =>
     `<div><dt>${esc(p.label)}</dt><dd>${esc(p.question)}</dd></div>`
@@ -81,48 +95,70 @@ function homeHTML() {
       <p class="scroll-cue">Scroll</p>
     </header>
 
-    <section class="band band-paper">
+    <section class="band band-paper reveal">
       <div class="wrap">
-        <p class="eyebrow on-paper">Three practices, one account</p>
-        <h2>A defense company has three questions. Most advisors answer one.</h2>
-        <p class="lede">We staff engineering, capital, and policy against the same problem, so the technical answer, the financial case, and the path to a government buyer are built to agree with each other rather than assembled separately.</p>
+        ${sectionHead('Three practices, one account',
+          'A defense company has three questions. Most advisors answer one.',
+          'We staff engineering, capital, and policy against the same problem, so the technical answer, the financial case, and the path to a government buyer are built to agree with each other rather than assembled separately.', true)}
         <div class="practices">${practiceCards()}</div>
       </div>
     </section>
 
-    <section class="band band-deep">
+    <section class="band band-deep reveal">
       <div class="wrap">
         <p class="eyebrow">${txt(C.proof.caption)}</p>
         <div class="proof">
           ${C.proof.stats.map(s => `<div><p class="v">${esc(s.value)}</p><p class="l">${esc(s.label)}</p></div>`).join('')}
         </div>
+        ${clientRow()}
       </div>
     </section>
 
-    <section class="band band-paper">
+    <section class="band band-paper reveal">
       <div class="wrap">
-        <p class="eyebrow on-paper">Scope</p>
-        <h2>${txt(C.boundaries.lead)}</h2>
-        <p class="lede">${txt(C.boundaries.body)}</p>
+        ${sectionHead('Scope', C.boundaries.lead, C.boundaries.body, true)}
+      </div>
+    </section>
+
+    <section class="band band-ink cta-band reveal">
+      <div class="wrap">
+        <div class="cta">
+          <div>
+            <h2>${txt(C.cta.heading)}</h2>
+            <p class="lede">${txt(C.cta.body)}</p>
+          </div>
+          <a class="cbtn cta-btn" href="#contact">${esc(C.cta.button)}</a>
+        </div>
       </div>
     </section>`;
+}
+
+/* The clients, pulled from the engagements already on the site so a name only
+   ever has to change in one place. Anything withheld never appears. */
+function clientRow() {
+  const named = C.engagements.filter(e => e.disclosure === 'named');
+  if (!named.length) return '';
+  return `
+    <div class="clientrow">
+      <p class="eyebrow">${esc(C.clientRow.caption)}</p>
+      <ul>${named.map(e => `<li>${esc(e.client)}</li>`).join('')}</ul>
+      <p class="clientrow-note">${esc(C.clientRow.note)}</p>
+    </div>`;
 }
 
 function capabilitiesHTML() {
   return `
     <section class="band band-paper">
       <div class="wrap">
-        <p class="eyebrow on-paper">Capabilities</p>
-        <h2>What each practice does</h2>
-        <p class="lede">${txt(C.org.canonical)}</p>
+        ${sectionHead('Capabilities', 'What each practice does', C.org.canonical, true)}
         <div class="practices">${practiceCards()}</div>
       </div>
     </section>
 
     <section class="band band-ink">
       <div class="wrap">
-        <p class="eyebrow">How an engagement works</p>
-        <h2>Scope first, then propose.</h2>
+        ${sectionHead('How an engagement works', 'Scope first, then propose.',
+          'We ask what the actual gap is before proposing anything, and we ask what is off limits at the start rather than discovering it later.', false)}
         <div class="steps">
           ${C.engagementModel.map(s => `
             <div class="step"><p class="k">${esc(s.step)}</p><p class="d">${txt(s.detail)}</p></div>`).join('')}
@@ -157,9 +193,8 @@ function engagementsHTML() {
   return `
     <section class="band band-paper">
       <div class="wrap">
-        <p class="eyebrow on-paper">Engagements</p>
-        <h2>Selected work</h2>
-        <p class="lede">Named with each client's permission.</p>
+        ${sectionHead('Engagements', 'Selected work',
+          "Named with each client's permission. Each entry says which practices worked the account and what they produced.", true)}
         ${body}
       </div>
     </section>`;
@@ -194,9 +229,8 @@ function teamHTML() {
   return `
     <section class="band band-paper">
       <div class="wrap">
-        <p class="eyebrow on-paper">${esc(C.org.memberCount)} members · ${esc(C.org.colleges)}</p>
-        <h2>The team</h2>
-        <p class="lede">Grouped by practice, because the practice is what a client is buying. Select anyone to read their background.</p>
+        ${sectionHead(esc(C.org.memberCount) + ' members · ' + esc(C.org.colleges), 'The team',
+          'Grouped by practice, because the practice is what a client is buying. Select anyone to read their background.', true)}
         ${groups}
       </div>
     </section>`;
@@ -218,6 +252,7 @@ function openMember(i, trigger) {
       <p class="eyebrow">${esc(practice ? practice.label : '')}${m.role ? ' · ' + esc(m.role) : ''}</p>
       <h3>${esc(m.name)}</h3>
       <p class="modal-meta">${esc(m.school)} ${esc(m.year)}</p>
+      ${m.linkedin ? `<p class="modal-link"><a href="${esc(m.linkedin)}" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>` : ''}
       <blockquote class="modal-why">${txt(m.why)}</blockquote>
       <p class="modal-bio">${txt(m.bio)}</p>
     </div>`;
@@ -243,8 +278,8 @@ function joinHTML() {
   return `
     <section class="band band-ink">
       <div class="wrap">
-        <p class="eyebrow">Join CADA</p>
-        <h2>${txt(C.recruitment.lead)}</h2>
+        ${sectionHead('Join CADA', C.recruitment.lead,
+          'Three practices, one intake. You apply to CADA, not to a track, and we place you where your background actually helps.', false)}
         <div class="steps">
           <div class="step"><p class="k">Timeline</p><p class="d">${txt(C.recruitment.timeline)}</p></div>
           <div class="step"><p class="k">Eligibility</p><p class="d">${txt(C.recruitment.eligibility)}</p></div>
@@ -255,11 +290,18 @@ function joinHTML() {
 
     <section class="band band-paper">
       <div class="wrap">
-        <p class="eyebrow on-paper">Training</p>
-        <h2>${txt(C.recruitment.training.title)}</h2>
-        <p class="lede">${txt(C.recruitment.training.body)}</p>
-        <p class="eyebrow on-paper" style="margin-top:3rem">Who we look for</p>
-        <ul class="plainlist">${C.recruitment.looking.map(l => `<li>${txt(l)}</li>`).join('')}</ul>
+        ${sectionHead('Training', C.recruitment.training.title, C.recruitment.training.body, true)}
+        <div class="joingrid">
+          <div>
+            <p class="eyebrow on-paper">Who we look for</p>
+            <ul class="plainlist">${C.recruitment.looking.map(l => `<li>${txt(l)}</li>`).join('')}</ul>
+          </div>
+          <div class="joincta">
+            <p class="eyebrow on-paper">Ready to apply</p>
+            <p>Applications are handled through the contact form. Tell us which practice interests you and what you have built or analysed.</p>
+            <a class="cbtn cbtn-dark" href="#contact">Get in touch</a>
+          </div>
+        </div>
       </div>
     </section>`;
 }
@@ -273,9 +315,7 @@ function contactHTML() {
   return `
     <section class="band band-ink">
       <div class="wrap">
-        <p class="eyebrow">Contact</p>
-        <h2>${txt(C.contact.heading)}</h2>
-        <p class="lede">${txt(C.contact.lede)}</p>
+        ${sectionHead('Contact', C.contact.heading, C.contact.lede, false)}
 
         <form class="cform" id="cform" novalidate
               action="${esc(WEB3FORMS_ENDPOINT)}" method="POST">
@@ -465,7 +505,75 @@ function route() {
     else a.removeAttribute('aria-current');
   });
   window.scrollTo(0, 0);
+  setMenu(false);
+  startReveal();
   if (name === 'home') startField();
+}
+
+
+/* --- Mobile menu ----------------------------------------------------------
+   Six items will not fit across a phone. Below the breakpoint the links
+   collapse behind a button and open as a panel under the bar.             */
+
+function setMenu(open) {
+  const nav = document.querySelector('.nav');
+  nav.classList.toggle('is-open', open);
+  el('navtoggle').setAttribute('aria-expanded', open ? 'true' : 'false');
+  el('navtoggle').setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+}
+
+/* --- Scroll reveal ---------------------------------------------------------
+   One effect, applied once, to whole sections. Anything more reads as motion
+   for its own sake.
+
+   Deliberately NOT using IntersectionObserver. These sections start at
+   opacity 0, so if the mechanism that reveals them ever fails to fire the page
+   is blank and the visitor has no way to know there was content. IO was
+   observed producing no callbacks at all in one real browser. A rect check on
+   scroll cannot fail that way, and there is a failsafe underneath it.      */
+
+let revealBound = false;
+
+function revealCheck() {
+  const h = window.innerHeight;
+  document.querySelectorAll('.reveal.is-pre').forEach(n => {
+    // Only the top edge is tested. Checking the bottom edge as well meant a
+    // section jumped past in one scroll stayed hidden forever, because by the
+    // time it was measured it was already entirely above the viewport.
+    if (n.getBoundingClientRect().top < h * 0.92) n.classList.remove('is-pre');
+  });
+}
+
+function revealAll() {
+  document.querySelectorAll('.reveal.is-pre').forEach(n => n.classList.remove('is-pre'));
+}
+
+function startReveal() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { revealAll(); return; }
+
+  // Hide from here, not from the stylesheet, so a failure leaves the page
+  // visible rather than blank.
+  document.querySelectorAll('.page.is-active .reveal').forEach(n => {
+    if (!n.dataset.revealed) { n.classList.add('is-pre'); n.dataset.revealed = '1'; }
+  });
+
+  if (!revealBound) {
+    revealBound = true;
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => { ticking = false; revealCheck(); });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+
+    // Failsafe. If nothing has come into view after four seconds, something is
+    // wrong and a missing animation beats an invisible page.
+    setTimeout(revealAll, 4000);
+  }
+
+  requestAnimationFrame(revealCheck);
 }
 
 /* --- 4. The cover field ---------------------------------------------------- */
@@ -542,9 +650,14 @@ if (HAS_DOM) {
   mountPages();
   el('foot-colleges').innerHTML = txt(C.org.colleges);
   el('foot-contact').textContent = C.org.contactEmail;
+  el('navtoggle').addEventListener('click', () =>
+    setMenu(!document.querySelector('.nav').classList.contains('is-open')));
+  el('navlinks').addEventListener('click', e => { if (e.target.tagName === 'A') setMenu(false); });
   el('modal-close').addEventListener('click', closeMember);
   el('modal-scrim').addEventListener('click', closeMember);
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMember(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { closeMember(); setMenu(false); }
+  });
   window.addEventListener('hashchange', () => { closeMember(); route(); });
   route();
 }

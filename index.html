@@ -31,6 +31,10 @@
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/jost-500.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/barlowcond-600.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/charis-400.woff2" crossorigin>
+<!-- Marks the document as scripted BEFORE the stylesheet applies. Anything that
+     starts hidden and is revealed by script is scoped to .js, so a visitor with
+     JavaScript off sees the whole page rather than a blank one. -->
+<script>document.documentElement.className += " js";</script>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -41,7 +45,11 @@
       <img src="assets/cada-wing.png" alt="">
       <span>CADA</span>
     </a>
-    <div class="nav-links">
+    <button class="navtoggle" id="navtoggle" type="button"
+            aria-expanded="false" aria-controls="navlinks" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="navlinks">
       <a href="#home">Home</a>
       <a href="#capabilities">Capabilities</a>
       <a href="#engagements">Engagements</a>
@@ -65,11 +73,16 @@
       <p class="scroll-cue">Scroll</p>
     </header>
 
-    <section class="band band-paper">
+    <section class="band band-paper reveal">
       <div class="wrap">
+        
+    <header class="shead">
+      <div class="shead-l">
         <p class="eyebrow on-paper">Three practices, one account</p>
         <h2>A defense company has three questions. Most advisors answer one.</h2>
-        <p class="lede">We staff engineering, capital, and policy against the same problem, so the technical answer, the financial case, and the path to a government buyer are built to agree with each other rather than assembled separately.</p>
+      </div>
+      <div class="shead-r"><p class="lede">We staff engineering, capital, and policy against the same problem, so the technical answer, the financial case, and the path to a government buyer are built to agree with each other rather than assembled separately.</p></div>
+    </header>
         <div class="practices">
     <article class="practice">
       <p class="eyebrow on-paper">Technical</p>
@@ -92,28 +105,56 @@
       </div>
     </section>
 
-    <section class="band band-deep">
+    <section class="band band-deep reveal">
       <div class="wrap">
         <p class="eyebrow">Modeled in a recent engagement</p>
         <div class="proof">
           <div><p class="v">$635K</p><p class="l">Modeled cost reduction per survey</p></div><div><p class="v">90%+</p><p class="l">Inspection time removed</p></div><div><p class="v">7</p><p class="l">Use cases scoped and specified</p></div><div><p class="v">3</p><p class="l">Practices on one account</p></div>
         </div>
+        
+    <div class="clientrow">
+      <p class="eyebrow">Companies we have worked with</p>
+      <ul><li>Flyability</li><li>Chariot Defense</li><li>Seeing Systems</li></ul>
+      <p class="clientrow-note">Named with each client&#39;s permission.</p>
+    </div>
       </div>
     </section>
 
-    <section class="band band-paper">
+    <section class="band band-paper reveal">
       <div class="wrap">
+        
+    <header class="shead">
+      <div class="shead-l">
         <p class="eyebrow on-paper">Scope</p>
         <h2>The work your team never gets to.</h2>
-        <p class="lede">Your engineers are booked on production-critical work, and the useful but not urgent items never reach the top of the list: a legacy process audit, a speculative idea nobody can justify senior hours on, a landscape scan, a question the team stopped seeing years ago. That is what we take. We are not trying to out-engineer anyone, and we do not take on classified work, controlled technical data, or anything inside an export control boundary.</p>
+      </div>
+      <div class="shead-r"><p class="lede">Your engineers are booked on production-critical work, and the useful but not urgent items never reach the top of the list: a legacy process audit, a speculative idea nobody can justify senior hours on, a landscape scan, a question the team stopped seeing years ago. That is what we take. We are not trying to out-engineer anyone, and we do not take on classified work, controlled technical data, or anything inside an export control boundary.</p></div>
+    </header>
+      </div>
+    </section>
+
+    <section class="band band-ink cta-band reveal">
+      <div class="wrap">
+        <div class="cta">
+          <div>
+            <h2>Bring us the question you have been putting off.</h2>
+            <p class="lede">Scoping costs you one call. We will tell you plainly whether it is something we can help with.</p>
+          </div>
+          <a class="cbtn cta-btn" href="#contact">Start a conversation</a>
+        </div>
       </div>
     </section></section>
     <section class="page" id="page-capabilities">
     <section class="band band-paper">
       <div class="wrap">
+        
+    <header class="shead">
+      <div class="shead-l">
         <p class="eyebrow on-paper">Capabilities</p>
         <h2>What each practice does</h2>
-        <p class="lede">CADA is a student consulting group of Claremont McKenna College and Harvey Mudd College that gives aerospace and defense companies engineering, financial, and policy analysis from a single team.</p>
+      </div>
+      <div class="shead-r"><p class="lede">CADA is a student consulting group of Claremont McKenna College and Harvey Mudd College that gives aerospace and defense companies engineering, financial, and policy analysis from a single team.</p></div>
+    </header>
         <div class="practices">
     <article class="practice">
       <p class="eyebrow on-paper">Technical</p>
@@ -138,8 +179,14 @@
 
     <section class="band band-ink">
       <div class="wrap">
+        
+    <header class="shead">
+      <div class="shead-l">
         <p class="eyebrow">How an engagement works</p>
         <h2>Scope first, then propose.</h2>
+      </div>
+      <div class="shead-r"><p class="lede">We ask what the actual gap is before proposing anything, and we ask what is off limits at the start rather than discovering it later.</p></div>
+    </header>
         <div class="steps">
           
             <div class="step"><p class="k">Scope</p><p class="d">A short call to find the actual gap. We ask what is off limits from the start, including anything export controlled or classified, before proposing anything.</p></div>
@@ -152,9 +199,14 @@
     <section class="page" id="page-engagements">
     <section class="band band-paper">
       <div class="wrap">
+        
+    <header class="shead">
+      <div class="shead-l">
         <p class="eyebrow on-paper">Engagements</p>
         <h2>Selected work</h2>
-        <p class="lede">Named with each client's permission.</p>
+      </div>
+      <div class="shead-r"><p class="lede">Named with each client&#39;s permission. Each entry says which practices worked the account and what they produced.</p></div>
+    </header>
         
           <article class="engagement">
             <div class="engagement-head">
@@ -198,9 +250,14 @@
     <section class="page" id="page-team">
     <section class="band band-paper">
       <div class="wrap">
+        
+    <header class="shead">
+      <div class="shead-l">
         <p class="eyebrow on-paper">10 members · Claremont McKenna College · Harvey Mudd College</p>
         <h2>The team</h2>
-        <p class="lede">Grouped by practice, because the practice is what a client is buying. Select anyone to read their background.</p>
+      </div>
+      <div class="shead-r"><p class="lede">Grouped by practice, because the practice is what a client is buying. Select anyone to read their background.</p></div>
+    </header>
         
       <section class="team-group">
         <header class="team-head">
@@ -307,10 +364,16 @@
     <section class="page" id="page-join">
     <section class="band band-ink">
       <div class="wrap">
+        
+    <header class="shead">
+      <div class="shead-l">
         <p class="eyebrow">Join CADA</p>
         <h2>CADA recruits from Claremont McKenna and Harvey Mudd across all three practices.</h2>
+      </div>
+      <div class="shead-r"><p class="lede">Three practices, one intake. You apply to CADA, not to a track, and we place you where your background actually helps.</p></div>
+    </header>
         <div class="steps">
-          <div class="step"><p class="k">Timeline</p><p class="d">Applications open in the first weeks of the autumn semester and close before autumn break, with interviews the following week. A smaller round runs in January for the spring.</p></div>
+          <div class="step"><p class="k">Timeline</p><p class="d">To be determined.</p></div>
           <div class="step"><p class="k">Eligibility</p><p class="d">Open to every class year at Claremont McKenna and Harvey Mudd. No prior defense background is expected. What matters is that you can pick up an unfamiliar technical or regulatory subject quickly and write about it clearly.</p></div>
           <div class="step"><p class="k">Process</p><p class="d">A short written application, then a conversation with two members about something you have built or analysed, then a final round working through a live problem of the kind CADA actually takes on.</p></div>
         </div>
@@ -319,19 +382,38 @@
 
     <section class="band band-paper">
       <div class="wrap">
+        
+    <header class="shead">
+      <div class="shead-l">
         <p class="eyebrow on-paper">Training</p>
         <h2>The analyst training program</h2>
-        <p class="lede">New analysts are trained on the federal data sources the work actually runs on: USAspending, FPDS, SEC EDGAR, and the procurement records underneath them. You learn to find what a company has won, from whom, and on what terms, which is a skill almost nobody graduates with.</p>
-        <p class="eyebrow on-paper" style="margin-top:3rem">Who we look for</p>
-        <ul class="plainlist"><li>Engineers who have built and flown something</li><li>Analysts comfortable in primary source data rather than summaries</li><li>Anyone who can read a procurement regulation without flinching</li></ul>
+      </div>
+      <div class="shead-r"><p class="lede">New analysts are trained on the federal data sources the work actually runs on: USAspending, FPDS, SEC EDGAR, and the procurement records underneath them. You learn to find what a company has won, from whom, and on what terms, which is a skill almost nobody graduates with.</p></div>
+    </header>
+        <div class="joingrid">
+          <div>
+            <p class="eyebrow on-paper">Who we look for</p>
+            <ul class="plainlist"><li>Engineers who have built and flown something</li><li>Analysts comfortable in primary source data rather than summaries</li><li>Anyone who can read a procurement regulation without flinching</li></ul>
+          </div>
+          <div class="joincta">
+            <p class="eyebrow on-paper">Ready to apply</p>
+            <p>Applications are handled through the contact form. Tell us which practice interests you and what you have built or analysed.</p>
+            <a class="cbtn cbtn-dark" href="#contact">Get in touch</a>
+          </div>
+        </div>
       </div>
     </section></section>
     <section class="page" id="page-contact">
     <section class="band band-ink">
       <div class="wrap">
+        
+    <header class="shead">
+      <div class="shead-l">
         <p class="eyebrow">Contact</p>
         <h2>Tell us what you are trying to answer.</h2>
-        <p class="lede">Send the problem rather than a job description. The first call is a scoping conversation: we ask what is off limits from the start, including anything export controlled or classified, before proposing any work.</p>
+      </div>
+      <div class="shead-r"><p class="lede">Send the problem rather than a job description. The first call is a scoping conversation: we ask what is off limits from the start, including anything export controlled or classified, before proposing any work.</p></div>
+    </header>
 
         <form class="cform" id="cform" novalidate
               action="https://api.web3forms.com/submit" method="POST">
