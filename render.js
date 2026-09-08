@@ -57,7 +57,7 @@ const el = (id) => document.getElementById(id);
    short paragraph, and takes real height out of every section. */
 function sectionHead(eyebrow, heading, lede, onPaper) {
   return `
-    <header class="shead">
+    <header class="shead${lede ? '' : ' shead-solo'}">
       <div class="shead-l">
         <p class="eyebrow${onPaper ? ' on-paper' : ''}">${esc(eyebrow)}</p>
         <h2>${txt(heading)}</h2>
@@ -198,8 +198,7 @@ function engagementsHTML() {
   return `
     <section class="band band-paper">
       <div class="wrap">
-        ${sectionHead('Engagements', 'Selected work',
-          'Each entry says which practices worked the account and what they produced.', true)}
+        ${sectionHead('Engagements', 'Selected work', '', true)}
         ${body}
       </div>
     </section>`;
@@ -234,8 +233,7 @@ function teamHTML() {
   return `
     <section class="band band-paper">
       <div class="wrap">
-        ${sectionHead(esc(C.org.memberCount) + ' members · ' + esc(C.org.colleges), 'The team',
-          'Grouped by practice. Select anyone to read their background.', true)}
+        ${sectionHead(esc(C.org.memberCount) + ' members · ' + esc(C.org.colleges), 'The team', '', true)}
         ${groups}
       </div>
     </section>`;
@@ -283,8 +281,7 @@ function joinHTML() {
   return `
     <section class="band band-ink">
       <div class="wrap">
-        ${sectionHead('Join CADA', C.recruitment.lead,
-          'Three practices, one intake. You apply to CADA, not to a track, and we place you where your background actually helps.', false)}
+        ${sectionHead('Join CADA', C.recruitment.lead, '', false)}
         <div class="steps">
           <div class="step"><p class="k">Timeline</p><p class="d">${txt(C.recruitment.timeline)}</p></div>
           <div class="step"><p class="k">Eligibility</p><p class="d">${txt(C.recruitment.eligibility)}</p></div>
