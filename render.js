@@ -90,6 +90,7 @@ function homeHTML() {
         <img class="hero-mark" src="assets/cada-wing.png" alt="${esc(C.org.name)}">
         <h1>Claremont Aerospace<br><span class="amp">&amp;</span> Defense Association</h1>
         <p class="hero-line">${txt(C.org.heroLine)}</p>
+        <p class="hero-sub">${txt(C.org.heroSub)}</p>
         <dl class="triptych">${heroTriptych()}</dl>
       </div>
       <p class="scroll-cue">Scroll</p>
@@ -198,7 +199,7 @@ function engagementsHTML() {
   return `
     <section class="band band-paper">
       <div class="wrap">
-        ${sectionHead('Engagements', 'Selected work', '', true)}
+        ${sectionHead('Engagements', 'Client work', '', true)}
         ${body}
       </div>
     </section>`;
@@ -659,6 +660,7 @@ if (HAS_DOM) {
   mountPages();
   el('foot-colleges').innerHTML = txt(C.org.colleges);
   el('foot-contact').textContent = C.org.contactEmail;
+  el('foot-disclaimer').textContent = C.org.disclaimer;
   el('navtoggle').addEventListener('click', () =>
     setMenu(!document.querySelector('.nav').classList.contains('is-open')));
   el('navlinks').addEventListener('click', e => { if (e.target.tagName === 'A') setMenu(false); });

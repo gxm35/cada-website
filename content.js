@@ -33,12 +33,22 @@ const CONTENT = {
 
     // Shown under the wordmark on the cover. Keep it to one short line.
     heroLine: "Engineering, capital, and policy judgment for companies building in aerospace and defense.",
+    // Said on the first screen on purpose. The argument for CADA is unused
+    // capacity, not seniority, and that argument only works if the reader
+    // knows who we are before they reach the team page.
+    heroSub: "A student consulting group of Claremont McKenna College and Harvey Mudd College.",
 
     founded: "2025",   // DRAFT, inferred: the earliest dated project file is a
                        // December 2025 memo, and the founder started at CMC that autumn.
     memberCount: "10",
     contactEmail: "claremontaerospacedefense@gmail.com",
-    domain: "claremontaerospacedefense.com"
+    domain: "claremontaerospacedefense.com",
+
+    // Shown in the footer on every page. CADA is a student group, and policy
+    // and export control questions carry real legal exposure for a client who
+    // acts on an answer. Saying so plainly protects both sides and costs the
+    // site nothing.
+    disclaimer: "CADA is a student organization. Our work is research and analysis, not legal, financial, or export control advice. Clients should take regulated questions to qualified counsel."
   },
 
   /* --------------------------------------------------------------------------
@@ -79,7 +89,7 @@ const CONTENT = {
       services: [
         "Procurement environment and buyer mapping",
         "Regulatory and compliance landscape",
-        "Export control and ITAR scope screening",
+        "Export control landscape, and when a question needs counsel",
         "Defense customer doctrine and requirements"
       ]
     }
@@ -93,15 +103,14 @@ const CONTENT = {
      to lose a technical reader.
      ------------------------------------------------------------------------ */
   clientRow: {
-    caption: "Companies we have worked with",
-    note: "Named with each client's permission."
+    caption: "Companies we have worked with"
   },
 
   proof: {
     caption: "Modeled in a recent engagement",
     stats: [
       { value: "$635K", label: "Modeled cost reduction per survey" },
-      { value: "90%+", label: "Inspection time removed" },
+      { value: "90%+", label: "Survey labour hours removed" },
       { value: "7", label: "Use cases scoped and specified" },
       { value: "3", label: "Practices on one account" }
     ]
@@ -152,7 +161,7 @@ const CONTENT = {
         },
         {
           practice: "Finance",
-          detail: "Built an ROI model against conventional scaffolded survey methods on deliberately conservative assumptions. Direct cost per major survey fell from roughly $660K to $25K, with duration compressing from five to seven days to one or two."
+          detail: "Built an ROI model against conventional scaffolded survey methods on deliberately conservative assumptions. Labour fell from a projected 800 hours per survey to roughly 100, direct cost from about $660K to $25K, and duration from five to seven days down to one or two."
         },
         {
           practice: "Policy",

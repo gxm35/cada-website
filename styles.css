@@ -198,6 +198,12 @@ a { color: inherit; }
 }
 
 /* The three questions, set as a rule-separated triptych. */
+.hero-sub {
+  max-width: 44ch; margin: -2.2rem auto 3rem;
+  color: rgba(255, 255, 255, 0.42);
+  font-size: clamp(0.9rem, 1.1vw, 1rem); line-height: 1.5;
+}
+
 .triptych {
   display: grid; grid-template-columns: repeat(3, 1fr);
   gap: 1px; background: var(--ink-line);
@@ -297,8 +303,9 @@ a { color: inherit; }
 .eg-work .workrow .k { padding-top: 0; }
 .eg-work .workrow .d { max-width: 68ch; }
 .chip {
-  font-family: var(--label); font-weight: 600; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase;
-  border: 1px solid var(--paper-line); border-radius: 999px; padding: 0.25rem 0.7rem; color: var(--on-paper-2);
+  font-family: var(--body); font-size: 0.84rem; letter-spacing: 0;
+  border: 1px solid var(--paper-line); border-radius: 999px;
+  padding: 0.2rem 0.7rem; color: var(--on-paper-2);
 }
 .workrow { display: grid; gap: 0.5rem 2.5rem; padding: 1.1rem 0; border-top: 1px solid var(--paper-line); }
 @media (min-width: 820px) { .workrow { grid-template-columns: 150px 1fr; } }
@@ -337,8 +344,23 @@ a { color: inherit; }
 
 /* Footer */
 .foot { background: var(--ink-deep); color: var(--ink-soft); padding: 2.2rem 0; border-top: 1px solid var(--ink-line); }
-.foot .wrap { display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: space-between; align-items: center; }
+.foot-top {
+  display: flex; flex-wrap: wrap; gap: 0.8rem 1.5rem;
+  justify-content: space-between; align-items: baseline;
+}
 .foot .eyebrow { margin: 0; }
+.foot-mail {
+  font-family: var(--body); font-size: 1rem; color: var(--white);
+  text-decoration: underline; text-underline-offset: 3px;
+  text-decoration-color: rgba(255, 255, 255, 0.35);
+}
+.foot-mail:hover { text-decoration-color: var(--white); }
+.foot-note {
+  margin: 1.4rem 0 0; padding-top: 1.2rem;
+  border-top: 1px solid var(--ink-line);
+  max-width: 78ch; font-size: 0.85rem; line-height: 1.55;
+  color: rgba(255, 255, 255, 0.42);
+}
 
 /* Page routing: only the active page is shown */
 main { flex: 1 0 auto; display: flex; flex-direction: column; }
@@ -651,7 +673,6 @@ main { flex: 1 0 auto; display: flex; flex-direction: column; }
   font-family: var(--display); text-transform: uppercase;
   letter-spacing: 0.04em; font-size: clamp(1rem, 1.7vw, 1.3rem); color: var(--white);
 }
-.clientrow-note { margin: 0; font-size: 0.85rem; color: var(--ink-soft); }
 
 /* Closing call to action */
 .cta-band { padding-block: clamp(2.5rem, 4.5vw, 4rem); }
