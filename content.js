@@ -27,12 +27,15 @@ const CONTENT = {
     // The single most important line on the site. Right now the resume, the
     // LinkedIn profiles, and the member bios all describe CADA differently.
     // One agreed sentence that every member uses is worth more than any page here.
-    canonical: "[TO CONFIRM] One agreed sentence describing what CADA is.",
+    // DRAFT. This is the one sentence every member should be using in the same
+    // words. Agree it as a group and replace this.
+    canonical: "CADA is a student consulting group of Claremont McKenna College and Harvey Mudd College that gives aerospace and defense companies engineering, financial, and policy analysis from a single team.",
 
     // Shown under the wordmark on the cover. Keep it to one short line.
     heroLine: "Engineering, capital, and policy judgment for companies building in aerospace and defense.",
 
-    founded: "[TO CONFIRM]",   // Project files date back to at least December 2025
+    founded: "2025",   // DRAFT, inferred: the earliest dated project file is a
+                       // December 2025 memo, and the founder started at CMC that autumn.
     memberCount: "10",
     contactEmail: "claremontaerospacedefense@gmail.com",
     domain: "claremontaerospacedefense.com"
@@ -137,21 +140,45 @@ const CONTENT = {
       ]
     },
     {
+      // DRAFT. The client description below is accurate and taken from public
+      // sources. THE WORK IS NOT: nothing on record says what CADA did for
+      // Chariot, so the summary and the rows underneath it are invented and
+      // must be replaced before anyone outside the club reads this.
       disclosure: "named",
       client: "Chariot Defense",
-      sector: "[TO CONFIRM] Sector description, for use if the name is ever withdrawn.",
-      period: "[TO CONFIRM]",
-      summary: "[TO CONFIRM] What CADA was asked to do and what it delivered.",
-      work: []
+      sector: "A defense company building battlefield power and energy systems",
+      period: "2026",
+      summary: "Chariot builds modular power storage and distribution for the tactical edge, replacing fuel generators with quieter, lower-signature systems that already reach the Army through the Defense Innovation Unit. The work centred on where that platform sits in the Army's power modernisation path and what it is worth to the units buying it.",
+      work: [
+        {
+          practice: "Finance",
+          detail: "Sized the addressable tactical power market from federal procurement records, tracing what the services have historically spent on generators, batteries, and vehicle power, and which programs are the realistic near-term routes to a program of record."
+        },
+        {
+          practice: "Policy",
+          detail: "Mapped the procurement path from Defense Innovation Unit prototype work through to a program of record, and the requirements and testing gates a power system has to clear on the way."
+        }
+      ]
     },
     {
+      // DRAFT. Same caveat: the company description is from public sources, the
+      // description of CADA's work is invented and must be replaced.
       disclosure: "named",
       client: "Seeing Systems",
-      sector: "[TO CONFIRM] Sector description, for use if the name is ever withdrawn.",
-      period: "[TO CONFIRM]",
-      summary: "[TO CONFIRM] What CADA was asked to do and what it delivered.",
+      sector: "A Y Combinator company building low-cost autonomous strike drones",
+      period: "2026",
       note: "Y Combinator W26",
-      work: []
+      summary: "Seeing Systems builds inexpensive autonomous strike drones and has early traction with the UK Ministry of Defence and other NATO forces. The question was what it takes to sell the same platform into the United States, where the buyer, the rules, and the competition are all different.",
+      work: [
+        {
+          practice: "Policy",
+          detail: "Set out what a non-US manufacturer faces selling into the American defense market: export control on both sides, the sourcing rules that govern drone components for US government buyers, and which of them bind at what stage."
+        },
+        {
+          practice: "Finance",
+          detail: "Read the competitive field from federal contract records, identifying who is already winning small unmanned systems awards, at what scale, and through which contracting routes a new entrant can realistically compete."
+        }
+      ]
     }
   ],
 
@@ -160,9 +187,10 @@ const CONTENT = {
      ------------------------------------------------------------------------ */
   engagementModel: [
     { step: "Scope", detail: "A short call to find the actual gap. We ask what is off limits from the start, including anything export controlled or classified, before proposing anything." },
-    { step: "Team", detail: "[TO CONFIRM] Typical team size and how the three practices are staffed against one account." },
-    { step: "Cadence", detail: "[TO CONFIRM] Semester length, check-in frequency, and whether engagements run as one project or continuously." },
-    { step: "Deliverable", detail: "[TO CONFIRM] What a client receives at the end and in what form." }
+    // DRAFT. Nothing on record describes how CADA actually staffs an account.
+    { step: "Team", detail: "Three to five analysts, drawn from whichever practices the problem needs and led by a practice lead. A hardware question pulls the Harvey Mudd engineers, a capital or contract question pulls the finance practice, and most engagements draw on at least two." },
+    { step: "Cadence", detail: "Engagements run on the academic semester, roughly twelve weeks, with a standing check-in every two weeks and a working session at the midpoint. Longer relationships continue across semesters as a new scope rather than an open retainer." },
+    { step: "Deliverable", detail: "A written analysis with the model or dataset underneath it, and a presentation to whoever has to act on it. Interim material goes over as it is produced rather than being held back to the end." }
   ],
 
   /* --------------------------------------------------------------------------
@@ -287,9 +315,10 @@ const CONTENT = {
       title: "The analyst training program",
       body: "New analysts are trained on the federal data sources the work actually runs on: USAspending, FPDS, SEC EDGAR, and the procurement records underneath them. You learn to find what a company has won, from whom, and on what terms, which is a skill almost nobody graduates with."
     },
-    timeline: "[TO CONFIRM] Application opens, closes, and interview dates.",
-    eligibility: "[TO CONFIRM] Class years eligible and whether prior experience is expected.",
-    process: "[TO CONFIRM] Application steps, from first form through final round.",
+    // DRAFT. Replace all three with the real cycle before this is used to recruit.
+    timeline: "Applications open in the first weeks of the autumn semester and close before autumn break, with interviews the following week. A smaller round runs in January for the spring.",
+    eligibility: "Open to every class year at Claremont McKenna and Harvey Mudd. No prior defense background is expected. What matters is that you can pick up an unfamiliar technical or regulatory subject quickly and write about it clearly.",
+    process: "A short written application, then a conversation with two members about something you have built or analysed, then a final round working through a live problem of the kind CADA actually takes on.",
     looking: [
       "Engineers who have built and flown something",
       "Analysts comfortable in primary source data rather than summaries",

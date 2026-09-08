@@ -1,0 +1,49 @@
+# What on this site is drafted, and what it rests on
+
+Every `[TO CONFIRM]` marker has been replaced with real text so the site can be
+shown to members without placeholder boxes in the way. **Some of that text is
+sourced, some is inferred, and some is invented.** This file says which is which,
+so nothing gets quietly believed later just because it is written down.
+
+Anything marked **INVENTED** below is a guess written to fill a shape. It reads
+plausibly, which is exactly what makes it dangerous. Replace it before the link
+goes to anyone outside the club.
+
+Every drafted item is also flagged with a `// DRAFT` comment at its place in
+`content.js`.
+
+## Sourced: accurate, from real documents or public record
+
+| Item | Where it comes from |
+|---|---|
+| The whole Flyability engagement | The Flyability proposal document. The seven inspection cases, the payload pairing, the $660K to $25K ROI figures, and the buyer map are all read straight out of it |
+| Every member bio | The member bios PDF, unedited except for two corrections in Krish's own entry |
+| Every "why I joined" quote | The same PDF, in each member's own words |
+| Chariot Defense, company description | Public record. Modular battlefield power and energy systems, reaching the Army through the Defense Innovation Unit |
+| Seeing Systems, company description | Public record. Y Combinator W26, low-cost autonomous strike drones, early traction with the UK Ministry of Defence and other NATO forces |
+| Practice structure and headcount | The member bios: four technical, four finance, two policy |
+| The analyst training program | Shelby's bio, which names USAspending, FPDS and SEC EDGAR directly |
+
+## Inferred: reasoned from evidence, but not stated anywhere
+
+| Item | The reasoning | How wrong it could be |
+|---|---|---|
+| Founded **2025** | Earliest dated project file is a December 2025 memo, and the founder started at CMC that autumn | Could be off by a semester either way |
+| Chariot and Seeing Systems dated **2026** | Seeing Systems is a W26 company, so any engagement is 2026. Chariot is a guess by association | Chariot could be 2025 |
+
+## INVENTED: replace before this goes to anyone outside the club
+
+| Item | What it says | Why it is invented |
+|---|---|---|
+| **Chariot Defense, the work** | Market sizing from federal procurement records, and a procurement path from Defense Innovation Unit prototype through to a program of record | Nothing on record says what CADA did for Chariot. Written to be plausible against what Chariot actually builds. It is a guess |
+| **Seeing Systems, the work** | Export control and sourcing rules facing a non-US manufacturer, plus a competitive read of small unmanned systems awards | Same. Plausible against what the company does, entirely invented as CADA's work |
+| **Engagement model**: team size, cadence, deliverable | Three to five analysts, twelve-week semester, check-in every two weeks, written analysis plus presentation | Nothing describes how CADA staffs or runs an account. The Armtec call notes show CADA asking a client these same questions, which suggests the answers were not settled |
+| **Recruiting**: timeline, eligibility, process | Autumn applications closing before autumn break, smaller January round, three stage process | Entirely invented. **Do not use this to recruit anyone.** A published application deadline that is wrong is worse than none |
+| **The canonical description** | "A student consulting group of Claremont McKenna College and Harvey Mudd College that gives aerospace and defense companies engineering, financial, and policy analysis from a single team" | Not invented so much as unratified. It is a proposal. It should be the one sentence every member uses in the same words, and that is a decision the group makes, not a sentence a website assigns |
+
+## Still genuinely unknown
+
+- Whether CADA is a recognised student organisation at either college, which
+  governs whether the college names and marks may appear here at all.
+- Whether the three named clients agreed to being named on a public indexed
+  website, as distinct from being mentioned in a meeting.
