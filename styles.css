@@ -265,9 +265,12 @@ a { color: inherit; }
   font-family: var(--display); text-transform: uppercase;
   letter-spacing: 0.035em; font-size: 1.35rem; line-height: 1.15; margin: 0;
 }
+/* Every logo file is composited onto the same 200 by 58 canvas at 3x, sized by
+   optical area, so one rule sizes all of them and their baselines line up down
+   the page. Nothing here crops or recolours a client's mark. */
 .eg-logo {
-  display: block; height: 34px; width: auto; max-width: 190px;
-  object-fit: contain; object-position: left center; margin-bottom: 0.9rem;
+  display: block; width: 200px; max-width: 100%; height: auto;
+  margin-bottom: 1rem;
 }
 .eg-meta { margin: 0.5rem 0 0; font-size: 0.93rem; color: var(--on-paper-2); }
 .eg-meta:empty { display: none; }

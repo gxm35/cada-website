@@ -62,5 +62,5 @@ Those remain invented.
 ## Still genuinely unknown
 
 - Whether CADA is a recognised organisation at **Harvey Mudd**. CMC is settled.
-- Whether the three named clients agreed to being named on a public indexed
-  website, as distinct from being mentioned in a meeting.
+Nothing outstanding on client permission: Krish confirmed on 2026-09-07 that
+all three cleared both the naming and the use of their logos.

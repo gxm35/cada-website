@@ -122,11 +122,15 @@ const CONTENT = {
 
        logo: "assets/clients/flyability.png",
 
-     Put the file in assets/clients/. Nothing has one yet, on purpose: being
-     allowed to name a client is not the same as being allowed to use their
-     logo, which is a trademark and implies their endorsement. Ask each client
-     for the file and for permission to use it, then add the line. Wide, roughly
-     4:1 files on a transparent background work best.
+     Put the file in assets/clients/. All three current clients supplied their
+     logo and confirmed permission to use it on 2026-09-07. A logo is a
+     trademark and using one implies endorsement, so never add one that has not
+     been cleared the same way.
+
+     Every file is composited onto the same 200 by 58 canvas at 3x, sized by
+     optical area rather than by height, so a square mark and a wide wordmark
+     carry the same visual weight. If you add one, run the same treatment or it
+     will sit heavier or lighter than the rest.
 
      Move an engagement from "withheld" to "anonymized" once CADA agrees the
      work may be described. Move it to "named" only when the client has given
@@ -137,6 +141,7 @@ const CONTENT = {
       // Permission to name granted by Krish, 2026-09-07.
       disclosure: "named",
       client: "Flyability",
+      logo: "assets/clients/flyability.png",
       sector: "A European manufacturer of collision-tolerant inspection drones",
       period: "2025 - 2026",
       summary: "A full three-practice engagement: where the platform creates value, what that value is worth in dollars, and who is permitted to buy it.",
@@ -162,6 +167,7 @@ const CONTENT = {
       // must be replaced before anyone outside the club reads this.
       disclosure: "named",
       client: "Chariot Defense",
+      logo: "assets/clients/chariot-defense.png",
       sector: "A defense company building battlefield power and energy systems",
       period: "2026",
       summary: "Chariot builds modular power storage and distribution for the tactical edge, replacing fuel generators with quieter, lower-signature systems that already reach the Army through the Defense Innovation Unit. The work centred on where that platform sits in the Army's power modernisation path and what it is worth to the units buying it.",
@@ -181,6 +187,7 @@ const CONTENT = {
       // description of CADA's work is invented and must be replaced.
       disclosure: "named",
       client: "Seeing Systems",
+      logo: "assets/clients/seeing-systems.png",
       sector: "A Y Combinator company building low-cost autonomous strike drones",
       period: "2026",
       note: "Y Combinator W26",
