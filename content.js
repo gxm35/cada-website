@@ -170,28 +170,6 @@ const CONTENT = {
       ]
     },
     {
-      // DRAFT. The client description below is accurate and taken from public
-      // sources. THE WORK IS NOT: nothing on record says what CADA did for
-      // Chariot, so the summary and the rows underneath it are invented and
-      // must be replaced before anyone outside the club reads this.
-      disclosure: "named",
-      client: "Chariot Defense",
-      logo: "assets/clients/chariot-defense.png",
-      sector: "A defense company building battlefield power and energy systems",
-      period: "2026",
-      summary: "Chariot builds modular power storage and distribution for the tactical edge, replacing fuel generators with quieter, lower-signature systems that already reach the Army through the Defense Innovation Unit. The work centred on where that platform sits in the Army's power modernisation path and what it is worth to the units buying it.",
-      work: [
-        {
-          practice: "Finance",
-          detail: "Sized the addressable tactical power market from federal procurement records, tracing what the services have historically spent on generators, batteries, and vehicle power, and which programs are the realistic near-term routes to a program of record."
-        },
-        {
-          practice: "Policy",
-          detail: "Mapped the procurement path from Defense Innovation Unit prototype work through to a program of record, and the requirements and testing gates a power system has to clear on the way."
-        }
-      ]
-    },
-    {
       // DRAFT. Same caveat: the company description is from public sources, the
       // description of CADA's work is invented and must be replaced.
       disclosure: "named",

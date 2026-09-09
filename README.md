@@ -25,7 +25,7 @@ is worse than useless on the public face of a defense organization.
 Replace the whole string `"[TO CONFIRM] ..."` with the real text once you have
 it. As of this writing the open ones are the founding date, the canonical
 description of CADA, the recruiting timeline and process, the engagement model
-details, and the summaries for Chariot Defense and Seeing Systems.
+details, and the summary for Seeing Systems.
 
 ## Client disclosure
 
@@ -101,6 +101,14 @@ Idle reads **Send Message**. While sending, the button is disabled and reads
 replaced by a short confirmation. On failure every entered value stays exactly
 where it was, an error appears, and the CADA address is shown as a direct
 fallback, so a visitor is never left with no way to make contact.
+
+## A warning about new files
+
+`netlify.toml` publishes the whole repository, so **every file in here is a
+public URL on the live site.** Internal documents are individually blocked with
+404 redirects at the bottom of that file. If you add notes, a plan, a draft, or
+anything else not meant for visitors, add a matching block or it ships. Netlify
+cannot match by file extension, so this cannot be automated with one rule.
 
 ## Files
 

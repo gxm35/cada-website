@@ -38,3 +38,43 @@
   for = "/index.html"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
+
+# ============================================================================
+# Internal documents must not be readable from the site
+# ----------------------------------------------------------------------------
+# publish = "." serves the whole repository, so every working file in it is a
+# public URL. DRAFT-NOTES.md was returning 200 to anyone who guessed the path,
+# and it is the document that records which copy on the site is invented. On a
+# client facing site that is about the worst thing that could be left open.
+#
+# Netlify redirects cannot match by file extension, so each one is listed
+# explicitly. IF YOU ADD ANOTHER INTERNAL DOCUMENT TO THIS REPOSITORY, ADD IT
+# HERE TOO, or it ships.
+#
+# content.js and styles.css are deliberately not blocked: the browser has to
+# fetch them for the site to work at all.
+# ============================================================================
+
+[[redirects]]
+  from = "/DRAFT-NOTES.md"
+  to = "/"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/README.md"
+  to = "/"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/assets/clients/README.md"
+  to = "/"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/build.js"
+  to = "/"
+  status = 404
+  force = true

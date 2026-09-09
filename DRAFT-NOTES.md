@@ -19,7 +19,6 @@ Every drafted item is also flagged with a `// DRAFT` comment at its place in
 | The whole Flyability engagement | The Flyability proposal document. The seven inspection cases, the payload pairing, the $660K to $25K ROI figures, and the buyer map are all read straight out of it |
 | Every member bio | The member bios PDF, unedited except for two corrections in Krish's own entry |
 | Every "why I joined" quote | The same PDF, in each member's own words |
-| Chariot Defense, company description | Public record. Modular battlefield power and energy systems, reaching the Army through the Defense Innovation Unit |
 | Seeing Systems, company description | Public record. Y Combinator W26, low-cost autonomous strike drones, early traction with the UK Ministry of Defence and other NATO forces |
 | Practice structure and headcount | The member bios: four technical, four finance, two policy |
 | The analyst training program | Shelby's bio, which names USAspending, FPDS and SEC EDGAR directly |
@@ -29,17 +28,24 @@ Every drafted item is also flagged with a `// DRAFT` comment at its place in
 | Item | The reasoning | How wrong it could be |
 |---|---|---|
 | Founded **2025** | Earliest dated project file is a December 2025 memo, and the founder started at CMC that autumn | Could be off by a semester either way |
-| Chariot and Seeing Systems dated **2026** | Seeing Systems is a W26 company, so any engagement is 2026. Chariot is a guess by association | Chariot could be 2025 |
+| Seeing Systems dated **2026** | It is a W26 company, so any engagement is 2026 | Low risk |
 
 ## INVENTED: replace before this goes to anyone outside the club
 
 | Item | What it says | Why it is invented |
 |---|---|---|
-| **Chariot Defense, the work** | Market sizing from federal procurement records, and a procurement path from Defense Innovation Unit prototype through to a program of record | Nothing on record says what CADA did for Chariot. Written to be plausible against what Chariot actually builds. It is a guess |
 | **Seeing Systems, the work** | Export control and sourcing rules facing a non-US manufacturer, plus a competitive read of small unmanned systems awards | Same. Plausible against what the company does, entirely invented as CADA's work |
 | **Engagement model**: team size, cadence, deliverable | Three to five analysts, twelve-week semester, check-in every two weeks, written analysis plus presentation | Nothing describes how CADA staffs or runs an account. The Armtec call notes show CADA asking a client these same questions, which suggests the answers were not settled |
 | **Recruiting**: eligibility and process | Open to all class years, three stage process | Invented. The **timeline now reads "To be determined"** rather than an invented date, which was the most dangerous item on this list |
 | **The canonical description** | "A student consulting group of Claremont McKenna College and Harvey Mudd College that gives aerospace and defense companies engineering, financial, and policy analysis from a single team" | Not invented so much as unratified. It is a proposal. It should be the one sentence every member uses in the same words, and that is a decision the group makes, not a sentence a website assigns |
+
+## Removed from the site
+
+**Chariot Defense was taken off entirely on 2026-09-08**, at Krish's instruction:
+the engagement entry, its logo, and its appearance in the home page client row.
+The description of that work was invented, and removing it was the right call.
+The outreach tracker still records the engagement as Completed, so if the real
+account of it ever arrives it can be written up and added back properly.
 
 ## Settled since, from the club management files
 
