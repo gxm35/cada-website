@@ -154,20 +154,6 @@ const CONTENT = {
       sector: "A European manufacturer of collision-tolerant inspection drones",
       period: "2025 - 2026",
       summary: "A full three-practice engagement: where the platform creates value, what that value is worth in dollars, and who is permitted to buy it.",
-      work: [
-        {
-          practice: "Technical",
-          detail: "Scoped seven confined-space inspection cases across ballast tanks, cargo holds, storage tanks, exhaust stacks, hull structures, offshore rigs, and cofferdams. Specified payload configurations pairing ultrasonic thickness measurement with LiDAR geometry capture, and mapped each case to its failure modes and survey requirements."
-        },
-        {
-          practice: "Finance",
-          detail: "Built an ROI model against conventional scaffolded survey methods on deliberately conservative assumptions. Labour fell from a projected 800 hours per survey to roughly 100, direct cost from about $660K to $25K, and duration from five to seven days down to one or two."
-        },
-        {
-          practice: "Policy",
-          detail: "Mapped the buyer landscape across shipowners, classification societies, port authorities, defense agencies, and system integrators, each with its own purchase drivers, and traced the regulatory requirements that set inspection frequency."
-        }
-      ]
     },
     {
       // DRAFT. Same caveat: the company description is from public sources, the
@@ -180,16 +166,6 @@ const CONTENT = {
       note: "Y Combinator W26",
       summary: "Seeing Systems builds inexpensive autonomous strike drones and has early traction with the UK Ministry of Defence and other NATO forces. The question was what it takes to sell the same platform into the United States, where the buyer, the rules, and the competition are all different.",
       work: [
-        {
-          practice: "Policy",
-          detail: "Set out what a non-US manufacturer faces selling into the American defense market: export control on both sides, the sourcing rules that govern drone components for US government buyers, and which of them bind at what stage."
-        },
-        {
-          practice: "Finance",
-          detail: "Read the competitive field from federal contract records, identifying who is already winning small unmanned systems awards, at what scale, and through which contracting routes a new entrant can realistically compete."
-        }
-      ]
-    }
   ],
 
   /* --------------------------------------------------------------------------
