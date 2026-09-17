@@ -248,7 +248,7 @@ const CONTENT = {
       photo: "assets/people/charlotte-wong.jpg",
       why: "I joined CADA to explore my passion for space and defense.", practice: "technical", school: "HMC", year: "'29",
       role: "",
-      bio: "Charlotte studies Engineering at Harvey Mudd and is a member of the Mudd Amateur Rocketry Club. Before Mudd she completed a program at UT Austin's Center for Space Research and was one of 16 students selected from 400 applicants to work alongside Stanford PhD researchers in a spectroscopy lab. She has since built projects at the MIT Energy and Climate Hackathon and placed second in the Y Combinator track at Caltech's Hacktech, and she brings that combination of lab discipline and fast prototyping to CADA's space and defense work."
+      bio: "Charlotte studies Engineering at Harvey Mudd and is a Structures Lead at the Mudd Amateur Rocketry Club. Before Mudd, she was one of 16 students selected from 400 applicants to work alongside Stanford PhD researchers in a spectroscopy lab. She has since built projects at the MIT Energy and Climate Hackathon and placed second in the Y Combinator track at Caltech's Hacktech, and she brings that combination of lab discipline and fast prototyping to CADA's space and defense work."
     },
     {
       name: "Marcel Astrakhan",
