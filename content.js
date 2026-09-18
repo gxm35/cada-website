@@ -153,7 +153,7 @@ const CONTENT = {
       logo: "assets/clients/flyability.png",
       sector: "A European manufacturer of collision-tolerant inspection drones",
       period: "2025 - 2026",
-      summary: "A full three-practice engagement: where the platform creates value, what that value is worth in dollars, and who is permitted to buy it.",
+      summary: "A full three-practice engagement: where the platform creates value, what that value is worth in dollars, and who is permitted to buy it."
     },
     {
       // DRAFT. Same caveat: the company description is from public sources, the
@@ -164,8 +164,8 @@ const CONTENT = {
       sector: "A Y Combinator company building low-cost autonomous strike drones",
       period: "2026",
       note: "Y Combinator W26",
-      summary: "Seeing Systems builds inexpensive autonomous strike drones and has early traction with the UK Ministry of Defence and other NATO forces. The question was what it takes to sell the same platform into the United States, where the buyer, the rules, and the competition are all different.",
-      work: [
+      summary: "Seeing Systems builds inexpensive autonomous strike drones and has early traction with the UK Ministry of Defence and other NATO forces. The question was what it takes to sell the same platform into the United States, where the buyer, the rules, and the competition are all different."
+    }
   ],
 
   /* --------------------------------------------------------------------------
