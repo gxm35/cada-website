@@ -190,7 +190,7 @@ function engagementsHTML() {
               <p class="eg-summary">${txt(e.summary)}</p>
             </div>
             <div class="eg-work">
-              ${e.work.map(w => `
+              ${(e.work || []).map(w => `
                 <div class="workrow"><p class="k">${esc(w.practice)}</p><p class="d">${txt(w.detail)}</p></div>`).join('')}
             </div>
           </article>`;
