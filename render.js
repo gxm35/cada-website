@@ -99,7 +99,7 @@ function homeHTML() {
     <section class="band band-paper reveal">
       <div class="wrap">
         ${sectionHead('Three practices, one account',
-          'A defense company has three questions. Most advisors answer one.',
+          'Engineering, capital, and policy on one problem.',
           'We staff engineering, capital, and policy against the same problem, so the technical answer, the financial case, and the path to a government buyer are built to agree with each other rather than assembled separately.', true)}
         <div class="practices">${practiceCards()}</div>
       </div>
@@ -187,7 +187,7 @@ function engagementsHTML() {
                 ${e.note ? `<span class="chip chip-mark">${esc(e.note)}</span>` : ''}
                 ${named ? '' : '<span class="chip">Client name withheld</span>'}
               </p>
-              <p class="eg-summary">${txt(e.summary)}</p>
+              ${e.summary ? `<p class="eg-summary">${txt(e.summary)}</p>` : ''}
             </div>
             <div class="eg-work">
               ${(e.work || []).map(w => `
@@ -507,6 +507,14 @@ if (typeof module !== 'undefined' && module.exports) {
 
 const PAGES = ['home', 'capabilities', 'engagements', 'team', 'join', 'contact'];
 
+function updateNavSolid() {
+  const nav = document.querySelector('.nav');
+  if (!nav) return;
+  const onHome = !location.hash || location.hash === '#home';
+  const scrolled = window.scrollY > 48;
+  nav.classList.toggle('is-solid', !onHome || scrolled);
+}
+
 function route() {
   const name = PAGES.includes(location.hash.slice(1)) ? location.hash.slice(1) : 'home';
   PAGES.forEach(p => el('page-' + p).classList.toggle('is-active', p === name));
@@ -516,6 +524,7 @@ function route() {
   });
   window.scrollTo(0, 0);
   setMenu(false);
+  updateNavSolid();
   startReveal();
   if (name === 'home') startField();
 }
@@ -670,5 +679,6 @@ if (HAS_DOM) {
     if (e.key === 'Escape') { closeMember(); setMenu(false); }
   });
   window.addEventListener('hashchange', () => { closeMember(); route(); });
+  window.addEventListener('scroll', updateNavSolid, { passive: true });
   route();
 }

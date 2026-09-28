@@ -48,10 +48,8 @@ Member photos live in `assets/people/` as square JPEGs named after each member.
 To replace one, save a new square image over the existing file using the same
 filename. Nothing else needs to change.
 
-The site holds every portrait in a navy duotone that resolves to full colour on
-hover. That is a deliberate choice: it makes ten photographs taken in ten
-different places at ten different qualities read as one set. It is a treatment,
-not a substitute for consistent headshots.
+Team portraits render in full colour on the roster and in the member dialog.
+Use consistent square headshots when replacing photos in `assets/people/`.
 
 ## The contact form
 

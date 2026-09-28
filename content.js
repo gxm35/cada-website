@@ -40,7 +40,7 @@ const CONTENT = {
 
     founded: "2025",   // DRAFT, inferred: the earliest dated project file is a
                        // December 2025 memo, and the founder started at CMC that autumn.
-    memberCount: "10",
+    memberCount: "9",
     contactEmail: "claremontaerospacedefense@gmail.com",
     domain: "claremontaerospacedefense.com",
 
@@ -60,7 +60,7 @@ const CONTENT = {
     {
       key: "technical",
       label: "Technical",
-      question: "Can it be built?",
+      question: "Engineering feasibility",
       lead: "Harvey Mudd engineers who have flown the hardware, not just read about it.",
       services: [
         "Engineering feasibility and technical diligence",
@@ -72,7 +72,7 @@ const CONTENT = {
     {
       key: "financial",
       label: "Finance",
-      question: "Can it be funded, and can it win contracts?",
+      question: "Funding and federal contracts",
       lead: "Capital strategy joined to federal contract pipeline analysis, run on primary data.",
       services: [
         "Capital strategy and unit economics",
@@ -84,7 +84,7 @@ const CONTENT = {
     {
       key: "policy",
       label: "Policy",
-      question: "Can it be sold to the government?",
+      question: "Government procurement",
       lead: "How the customer actually buys, from doctrine through procurement.",
       services: [
         "Procurement environment and buyer mapping",
@@ -153,7 +153,7 @@ const CONTENT = {
       logo: "assets/clients/flyability.png",
       sector: "A European manufacturer of collision-tolerant inspection drones",
       period: "2025 - 2026",
-      summary: "A full three-practice engagement: where the platform creates value, what that value is worth in dollars, and who is permitted to buy it."
+      summary: ""
     },
     {
       // DRAFT. Same caveat: the company description is from public sources, the
@@ -164,7 +164,7 @@ const CONTENT = {
       sector: "A Y Combinator company building low-cost autonomous strike drones",
       period: "2026",
       note: "Y Combinator W26",
-      summary: "Seeing Systems builds inexpensive autonomous strike drones and has early traction with the UK Ministry of Defence and other NATO forces. The question was what it takes to sell the same platform into the United States, where the buyer, the rules, and the competition are all different."
+      summary: ""
     }
   ],
 
@@ -259,14 +259,6 @@ const CONTENT = {
       bio: "Shayan studies Economics and Government at CMC and is a Berger Scholar. He is a member of Sagehen Capital Management and on student staff at the Rose Institute of State and Local Government, and his interest in policy comes from working in the district offices of Congresswoman Michelle Steel and California Assemblyman Tri Ta. He works at the intersection of finance and regulation, helping aerospace and defense companies navigate financial and compliance challenges."
     },
     {
-      name: "Jasper Langley-Hawthorne",
-      linkedin: "https://www.linkedin.com/in/jasper-langley-hawthorne",
-      photo: "assets/people/jasper-langley-hawthorne.jpg",
-      why: "I joined CADA after researching the political economy of security for a professor on campus, and wanted to apply what I had learned to navigating policy in the real world.", practice: "policy", school: "CMC", year: "'27",
-      role: "",
-      bio: "Jasper is a senior studying Philosophy, Politics, and Economics at CMC. He is a research assistant at the Lowe Institute of Political Economy, a writing consultant at the Center for Writing and Public Discourse, a writer for The Forum, and vice president of the CMC Philosophy Club, which he founded. His research on the political economy of security informs how he helps clients navigate real-world policy and procurement environments."
-    },
-    {
       name: "Andrew Nelson",
       linkedin: "https://www.linkedin.com/in/andrew-nelson-360254375",
       photo: "assets/people/andrew-nelson.jpg",
@@ -280,7 +272,7 @@ const CONTENT = {
      CLOSING CALL TO ACTION, home page
      ------------------------------------------------------------------------ */
   cta: {
-    heading: "Bring us the question you have been putting off.",
+    heading: "Bring us the work you have been putting off.",
     body: "Scoping costs you one call. We will tell you plainly whether it is something we can help with.",
     button: "Start a conversation"
   },
@@ -296,7 +288,7 @@ const CONTENT = {
      whichever address that key was registered to; it is not set by this file.
      ------------------------------------------------------------------------ */
   contact: {
-    heading: "Tell us what you are trying to answer.",
+    heading: "Tell us what you are trying to work out.",
     lede: "Send the problem rather than a job description. The first call is a scoping conversation: we ask what is off limits from the start, including anything export controlled or classified, before proposing any work.",
     fields: {
       name: "Your name",
