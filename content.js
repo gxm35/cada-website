@@ -40,7 +40,7 @@ const CONTENT = {
 
     founded: "2025",   // DRAFT, inferred: the earliest dated project file is a
                        // December 2025 memo, and the founder started at CMC that autumn.
-    memberCount: "9",
+    memberCount: "8",
     contactEmail: "claremontaerospacedefense@gmail.com",
     domain: "claremontaerospacedefense.com",
 
@@ -225,14 +225,6 @@ const CONTENT = {
       why: "I joined CADA to explore my passion for space and defense.", practice: "technical", school: "HMC", year: "'29",
       role: "",
       bio: "Charlotte studies Engineering at Harvey Mudd and is a Structures Lead at the Mudd Amateur Rocketry Club. Before Mudd, she was one of 16 students selected from 400 applicants to work alongside Stanford PhD researchers in a spectroscopy lab. She has since built projects at the MIT Energy and Climate Hackathon and placed second in the Y Combinator track at Caltech's Hacktech, and she brings that combination of lab discipline and fast prototyping to CADA's space and defense work."
-    },
-    {
-      name: "Marcel Astrakhan",
-      linkedin: "https://www.linkedin.com/in/marcel-astrakhan",
-      photo: "assets/people/marcel-astrakhan.jpg",
-      why: "I joined CADA because I want to use data to help inform the usage of company products.", practice: "technical", school: "CMC", year: "'29",
-      role: "",
-      bio: "Marcel is a Data Science and Economics dual major at CMC and a Research Assistant at the Kravis Leadership Institute. He applies data analysis to product questions, helping clients understand how their products are used and where they fit in the market."
     },
     {
       name: "Krish Malhotra",
